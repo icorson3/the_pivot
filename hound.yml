@@ -1,5 +1,0 @@
-ruby:
-  ignore_file: db/seeds.rb
-
-scss:
-  enabled: false
