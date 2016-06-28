@@ -20,7 +20,7 @@ class Seed
           price: Faker::Number.decimal(2),
           image: Faker::Avatar.image,
           status: status.sample,
-          vendor_id: rand(1..20)
+          vendor_id: rand(1..20),
           category_id: category.id
         )
       end
@@ -35,7 +35,7 @@ class Seed
       User.create!(
       username: username,
       password: Faker::Internet.password,
-      role: 1
+      role: 1,
       email: Faker::Internet.email('username'),
       name: Faker::Name.name,
       address: Faker::Address.street_address,
@@ -67,7 +67,7 @@ class Seed
   def create_categories
     puts "Creating Categories"
     10.times do Category.create!(
-      name: Faker::Commerce.department(1)
+      name: Faker::Commerce.department(1),
       kind: [0,1].sample
       )
     end
@@ -97,7 +97,7 @@ class Seed
       User.create!(
       username: username,
       password: Faker::Internet.password,
-      role: 2
+      role: 2,
       email: Faker::Internet.email('username'),
       name: Faker::Name.name,
       address: Faker::Address.street_address,
@@ -112,7 +112,7 @@ end
 
 User.create!(username: "jmejia@turing.io",
              password: "password",
-             role: 1
+             role: 1,
              email: "jmejia@turing.io",
              name: "Josh",
              address: Faker::Address.street_address,
@@ -122,7 +122,7 @@ User.create!(username: "jmejia@turing.io",
              vendor_id: nil)
 User.create!(username: "nate@turing.io",
              password: "password",
-             role: 2
+             role: 2,
              email: "nate@turing.io",
              name: "Nate",
              address: Faker::Address.street_address,
@@ -132,7 +132,7 @@ User.create!(username: "nate@turing.io",
              vendor_id: 1)
 User.create!(username: "jorge@turing.io",
              password: "password",
-             role: 3
+             role: 3,
              email: "jorge@turing.io",
              name: "Jorge",
              address: Faker::Address.street_address,
