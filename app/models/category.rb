@@ -1,9 +1,11 @@
 class Category < ActiveRecord::Base
-  has_many :categories_items
-  has_many :items, through: :categories_items
+  has_many :items
+  has_many :vendors
 
   validates_format_of :name, :without => /\A\d/
   validates :name, presence:true, uniqueness: true
+
+  enum kind: ["vendor", "item"]
 
   def slug
     name.parameterize
@@ -20,4 +22,5 @@ class Category < ActiveRecord::Base
       super
     end
   end
+
 end

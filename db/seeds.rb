@@ -2,9 +2,9 @@ class Seed
 
   def initialize
     create_categories
+    create_vendors
     create_items
     create_users
-    create_vendors
     create_orders
     create_business_admins
   end
@@ -12,7 +12,8 @@ class Seed
   def create_items
     status = [0,1]
     puts "Creating Items"
-    Categories.all.each do |category|
+    # byebug
+    Category.all.each do |category|
       50.times do
         Item.create!(
           name: Faker::Commerce.product_name,
@@ -35,7 +36,7 @@ class Seed
       User.create!(
       username: username,
       password: Faker::Internet.password,
-      role: 1,
+      role: 0,
       email: Faker::Internet.email('username'),
       name: Faker::Name.name,
       address: Faker::Address.street_address,
@@ -50,8 +51,9 @@ class Seed
 
   def create_vendors
     puts "Creating Vendors"
-    name = Faker::Company.name
-    20.times do Vendor.create!(
+    20.times do
+      name = Faker::Company.name
+      Vendor.create!(
       name: name,
       description: Faker::Hipster.paragraph,
       city: Faker::Address.city,
@@ -66,8 +68,11 @@ class Seed
 
   def create_categories
     puts "Creating Categories"
+    categories = []
+    100.times { categories << Faker::Commerce.department(1) }
+    categories = categories.uniq
     10.times do Category.create!(
-      name: Faker::Commerce.department(1),
+      name: categories.pop,
       kind: [0,1].sample
       )
     end
@@ -97,7 +102,7 @@ class Seed
       User.create!(
       username: username,
       password: Faker::Internet.password,
-      role: 2,
+      role: 1,
       email: Faker::Internet.email('username'),
       name: Faker::Name.name,
       address: Faker::Address.street_address,
@@ -109,10 +114,11 @@ class Seed
     end
   end
 end
+Seed.new
 
 User.create!(username: "jmejia@turing.io",
              password: "password",
-             role: 1,
+             role: 0,
              email: "jmejia@turing.io",
              name: "Josh",
              address: Faker::Address.street_address,
@@ -122,7 +128,7 @@ User.create!(username: "jmejia@turing.io",
              vendor_id: nil)
 User.create!(username: "nate@turing.io",
              password: "password",
-             role: 2,
+             role: 1,
              email: "nate@turing.io",
              name: "Nate",
              address: Faker::Address.street_address,
@@ -132,7 +138,7 @@ User.create!(username: "nate@turing.io",
              vendor_id: 1)
 User.create!(username: "jorge@turing.io",
              password: "password",
-             role: 3,
+             role: 2,
              email: "jorge@turing.io",
              name: "Jorge",
              address: Faker::Address.street_address,
@@ -141,7 +147,6 @@ User.create!(username: "jorge@turing.io",
              zip: Faker::Address.zip_code,
              vendor_id: nil)
 
-Seed.new
 
 
 # finished_at: status == 3 ? Faker::Date.between(2.years.ago, Date.today) : nil,
