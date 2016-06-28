@@ -14,7 +14,7 @@ RSpec.feature "Visitor can see all items for a vendor", :type => :feature do
     expect(page).to have_content(items_1[1].name)
 
     visit vendor_items_path(vendor_2.slug)
-save_and_open_page
+
     expect(page).to have_content(items_2[0].name)
     expect(page).to have_content(items_2[1].name)
   end

@@ -38,7 +38,7 @@ FactoryGirl.define do
   end
 
   factory :vendor do
-    name Faker::Name.name
+    name {Faker::Name.name}
     description "all the things"
     city "denver"
     state "CO"
