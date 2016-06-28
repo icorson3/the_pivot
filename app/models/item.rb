@@ -1,9 +1,8 @@
 class Item < ActiveRecord::Base
   belongs_to :vendor
-
-  has_many :categories_items
-  has_many :categories, through: :categories_items
-  has_many :order_items  
+  belongs_to :category
+  
+  has_many :order_items
 
   validates :name, presence: true
   validates :description, presence: true

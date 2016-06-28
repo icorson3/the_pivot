@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "admin views orders" do
   scenario "can see all orders" do
-    admin = create(:user, role: 1)
+    admin = create(:user, role: 2)
     user = create(:user_with_orders)
     orders = user.orders
 

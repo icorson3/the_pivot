@@ -8,8 +8,7 @@ RSpec.describe Item, type: :model do
   end
 
   context "relationships" do
-    it { should have_many(:categories_items) }
-    it { should have_many(:categories) }
+    it { should belong_to(:category) }
     it { should have_many(:order_items) }
   end
 

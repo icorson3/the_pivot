@@ -1,5 +1,5 @@
 <h2> Welcome, <%= @user.name %></h2>
-<% if @user.admin? %>
+<% if @user.super_admin? %>
   <%= link_to "Update Personal Account Information", admin_edit_user_path %>
 <% else %>
   <%= link_to "Update Personal Account Information", edit_user_path %>

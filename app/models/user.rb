@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :email, message: "does not match"
 
 
-  enum role:["default", "admin"]
+  enum role:["default", "business_admin", "super_admin"]
 
   def to_param
   end

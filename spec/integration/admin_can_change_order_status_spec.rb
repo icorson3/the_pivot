@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "admin can change order status" do
   scenario "they changed the status, duh" do
     items = create_list(:item, 2)
-    admin = create(:user, role: 1)
+    admin = create(:user, role: 2)
     user = create(:user)
     order = user.orders.create
     cart = Cart.new({ items[0].id => 1, items[1].id => 1 })

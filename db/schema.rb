@@ -11,18 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628194716) do
+ActiveRecord::Schema.define(version: 20160628225634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "categories_items", id: false, force: :cascade do |t|
-    t.integer "item_id",     null: false
-    t.integer "category_id", null: false
+    t.string  "name"
+    t.integer "kind"
   end
 
   create_table "items", force: :cascade do |t|
@@ -32,8 +28,10 @@ ActiveRecord::Schema.define(version: 20160628194716) do
     t.string  "image"
     t.integer "status",      default: 0
     t.integer "vendor_id"
+    t.integer "category_id"
   end
 
+  add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
   add_index "items", ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
 
   create_table "order_items", id: false, force: :cascade do |t|
@@ -82,9 +80,14 @@ ActiveRecord::Schema.define(version: 20160628194716) do
     t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
 
+  add_index "vendors", ["category_id"], name: "index_vendors_on_category_id", using: :btree
+
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "vendors"
   add_foreign_key "orders", "users"
   add_foreign_key "users", "vendors"
+  add_foreign_key "vendors", "categories"
 end
