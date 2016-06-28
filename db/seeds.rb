@@ -51,8 +51,9 @@ class Seed
 
   def create_vendors
     puts "Creating Vendors"
-    name = Faker::Company.name
-    20.times do Vendor.create!(
+    20.times do
+      name = Faker::Company.name
+      Vendor.create!(
       name: name,
       description: Faker::Hipster.paragraph,
       city: Faker::Address.city,

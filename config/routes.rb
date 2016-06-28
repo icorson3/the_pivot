@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show, :edit, :update]
 
-  resources :vendors, only: [:index]
+  resources :vendor, only: [:index]
 
   namespace :admin do
     get "/dashboard" => "users#show"
