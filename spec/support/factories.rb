@@ -32,7 +32,19 @@ FactoryGirl.define do
     user
     status 0
 
-    factory "order_with_items" do
+    factory :order_with_items do
+      items { create_list(:item, 3) }
+    end
+  end
+
+  factory :vendor do
+    name Faker::Name.name
+    description "all the things"
+    city "denver"
+    state "CO"
+    status "pending"
+
+    factory :vendor_with_items do
       items { create_list(:item, 3) }
     end
   end

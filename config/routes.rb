@@ -7,8 +7,14 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show, :edit, :update]
 
+  resources :vendors, only: [:index]
+
   namespace :admin do
     get "/dashboard" => "users#show"
+  end
+
+  namespace :vendor, path: ':vendor_slug', as: :vendor do
+    resources :items, only: [:index, :show]
   end
 
   get '/login', to: 'sessions#new'
