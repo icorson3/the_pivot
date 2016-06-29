@@ -1,4 +1,4 @@
-class VendorController < ApplicationController
+class VendorsController < ApplicationController
 
   def index
     @vendors = Vendor.all
