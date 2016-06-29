@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show, :edit, :update]
 
-  resources :vendor, only: [:index]
+  resources :vendors, only: [:index]
 
   namespace :admin do
     get "/dashboard" => "users#show"
@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
-  get "/:vendor_slug", to: "vendor#show", as: "vendor"
+  get "/:vendor_slug", to: "vendors#show", as: "vendor"
   get "/:id" => "categories#show", as: "category"
 end
