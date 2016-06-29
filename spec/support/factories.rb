@@ -22,6 +22,8 @@ FactoryGirl.define do
     price "5.99"
     image "http://i.imgur.com/kgOqHMk.gif"
     status 0
+    vendor
+    category
   end
 
   factory :category do
