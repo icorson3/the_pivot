@@ -4,8 +4,6 @@ RSpec.describe Category, type: :model do
   context "validations" do
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name) }
-    it { should have_many(:categories_items) }
-    it { should respond_to(:categories_items) }
     it { should respond_to(:items) }
   end
 

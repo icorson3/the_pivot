@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "admin login functions" do
   scenario "admin logs in" do
-    admin = create(:user, role: 1)
+    admin = create(:user, role: 2)
 
     visit login_path
 

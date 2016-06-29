@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
     @user = current_user
 
-    if current_user.admin?
+    if current_user.super_admin?
       redirect_to admin_dashboard_path
     else
       render :show

@@ -3,6 +3,6 @@ class Admin::BaseController < ApplicationController
 
   def require_admin
     return redirect_to login_path if current_user.nil?
-    render file: "/public/404" unless current_admin?
+    render file: "/public/404" unless current_super_admin?
   end
 end

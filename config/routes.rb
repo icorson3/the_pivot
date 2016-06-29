@@ -7,13 +7,21 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show, :edit, :update]
 
+  resources :vendors, only: [:index]
+
   namespace :admin do
     get "/dashboard" => "users#show"
+  end
+
+  namespace :vendor, path: ':vendor_slug', as: :vendor do
+    resources :items, only: [:index, :show]
   end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/search', to: 'search#index'
 
   patch "/user/edit", to: "users#update"
   get "admin/user/edit" => "users#edit", as: "admin_edit_user"
@@ -21,5 +29,6 @@ Rails.application.routes.draw do
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
+  get "/:vendor_slug", to: "vendors#show", as: "vendor"
   get "/:id" => "categories#show", as: "category"
 end

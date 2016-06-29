@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "admin visits personal dashboard to edit account data" do
   scenario "check if edit page has only admin user data" do
-    user = create(:user, role: 1)
+    user = create(:user, role: 2)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
