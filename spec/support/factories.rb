@@ -12,7 +12,7 @@ FactoryGirl.define do
     role "default"
 
     factory :user_with_order do
-      orders { create_list(:order_with_items, 1) }
+      orders { create_list(:order_with_items, 3) }
     end
   end
 

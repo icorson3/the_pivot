@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "admin views orders" do
   scenario "can see all orders" do
     admin = create(:user, role: 2)
-    user = create(:user_with_orders)
+    user = create(:user_with_order)
     orders = user.orders
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
