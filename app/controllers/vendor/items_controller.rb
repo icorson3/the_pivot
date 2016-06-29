@@ -5,6 +5,6 @@ class Vendor::ItemsController < ApplicationController
   end
 
   def show
-
+    @vendor = Vendor.find_by(slug: params[:vendor_slug])
   end
 end
