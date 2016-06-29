@@ -1,1 +1,2 @@
-<h1> Hello </h1>
+<h1> <%= @item.name %> </h1>
+<%= button_to "Add to cart", cart_items_path(id: @item), class: "btn" %>
