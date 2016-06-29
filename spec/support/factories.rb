@@ -11,8 +11,8 @@ FactoryGirl.define do
     zip "1234"
     role "default"
 
-    factory :user_with_orders do
-      orders { create_list(:order, 3) }
+    factory :user_with_order do
+      orders { create_list(:order_with_items, 3) }
     end
   end
 
