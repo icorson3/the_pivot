@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/search', to: 'search#index'
+
   patch "/user/edit", to: "users#update"
   get "admin/user/edit" => "users#edit", as: "admin_edit_user"
   get "/user/edit", to: "users#edit", as: "edit_user"
