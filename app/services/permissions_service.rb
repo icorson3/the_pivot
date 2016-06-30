@@ -25,14 +25,23 @@ class PermissionsService
   end
 
   def business_admin_permissions
-    true
+    return true if controller == "items" && action.in?(["index"])
+    return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
+    return true if controller == "orders" && action.in?(["index", "show", "create"])
+    return true if controller == "vendors" && action.in?(["index", "show", "edit", "update"])
+    return true if controller == "categories" && action.in?(["index", "shows"])
+    return true if controller == "vendor/items" && action.in?(["index", "show"])
+    return true if controller == "sessions" && action.in?(["new", "create", "destroy"])
+    return true if controller == "search" && action.in?(["index"])
+    return true if controller == "users" && action.in?(["show", "edit", "update"])
+    return true if controller == "application" && action.in?(["get_favicon"])
   end
 
   def registered_user_permissions
     return true if controller == "items" && action.in?(["index"])
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "orders" && action.in?(["index", "show", "create"])
-    return true if controller == "vendors" && action.in?(["index", "show", "new", "create", "edit", "update"])
+    return true if controller == "vendors" && action.in?(["index", "show", "new", "create"])
     return true if controller == "categories" && action.in?(["index", "shows"])
     return true if controller == "vendor/items" && action.in?(["index", "show"])
     return true if controller == "sessions" && action.in?(["new", "create", "destroy"])
