@@ -31,5 +31,5 @@ Rails.application.routes.draw do
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
-  get "/:vendor_slug", to: "vendors#show"
+  get "/:vendor_slug", to: "vendors#show", as: "vendor_show"
 end
