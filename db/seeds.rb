@@ -1,5 +1,7 @@
 class Seed
 
+  #ELA Family Farms
+
   def initialize
     create_categories
     create_vendors
@@ -10,22 +12,22 @@ class Seed
   end
 
   def create_items
-    status = [0,1]
-    puts "Creating Items"
-    # byebug
-    Category.all.each do |category|
-      50.times do
-        Item.create!(
-          name: Faker::Commerce.product_name,
-          description: Faker::Hipster.sentence,
-          price: Faker::Number.decimal(2),
-          image: Faker::Avatar.image,
-          status: status.sample,
-          vendor_id: rand(1..20),
-          category_id: category.id
-        )
-      end
-    end
+    # status = [0,1]
+    # puts "Creating Items"
+    # # byebug
+    # Category.all.each do |category|
+    #   50.times do
+    #     Item.create!(
+    #       name: Faker::Commerce.product_name,
+    #       description: Faker::Hipster.sentence,
+    #       price: Faker::Number.decimal(2),
+    #       image: Faker::Avatar.image,
+    #       status: status.sample,
+    #       vendor_id: vendor.id,
+    #       category_id: category.id
+    #     )
+    #   end
+    # end
     puts "Created Items"
   end
 
@@ -51,31 +53,192 @@ class Seed
 
   def create_vendors
     puts "Creating Vendors"
-    20.times do
-      name = Faker::Company.name
-      Vendor.create!(
-      name: name,
-      description: Faker::Hipster.paragraph,
-      city: Faker::Address.city,
-      state: Faker::Address.state,
-      status:[0,1,2,3],
-      slug: name.parameterize,
-      category_id: rand(1..10)
-      )
-    end
+
+    Vendor.create!(name: "Blue Barn Farms",
+                   description: "Specializes in Premium Peaches and Apples",
+                   city: Faker::Address.city,
+                   state: Faker::Address.state,
+                   status: 0,
+                   slug: "T & C Ranch".parameterize,
+                   category_id: 1)
+
+    Vendor.create!(name: "Abbott Crossing",
+                    description: "Specializes in Premium Produce",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Abbott Crossing".parameterize,
+                    category_id: 1)
+
+    Vendor.create!(name: "Barker's Brayers",
+                     description: "Specializes in Premium Produce",
+                     city: Faker::Address.city,
+                     state: Faker::Address.state,
+                     status: 0,
+                     slug: "Barker's Brayers".parameterize,
+                     category_id: 1)
+
+    Vendor.create!(name: "Elysium Fields",
+                    description: "Specializes in Premium Produce",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Elysium Fields".parameterize,
+                    category_id: 1)
+
+    Vendor.create!(name: "Grey'n Achers",
+                    description: "Specializes in Premium Livestock",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Grey'n Achers".parameterize,
+                    category_id: 2)
+
+    Vendor.create!(name: "Ba Donka Donk Mini Donks",
+                    description: "Specializes in Premium Donkeys",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Ba Donka Donk Mini Donks".parameterize,
+                    category_id: 2)
+
+    Vendor.create!(name: "Laughing Stock Farm",
+                    description: "Specializes in Premium Livestock",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Laughing Stock Farm".parameterize,
+                    category_id: 2)
+
+    Vendor.create!(name: "Our Lazy Ass Acres",
+                    description: "Specializes in Premium Livestock",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Our Lazy Ass Acres".parameterize,
+                    category_id: 2)
+
+    Vendor.create!(name: "Rain Creek Farm",
+                    description: "Specializes in Premium Products",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Rain Creek Farm".parameterize,
+                    category_id: 3)
+
+    Vendor.create!(name: "Poquito Burrito Ranchito",
+                    description: "Specializes in Premium Products",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Poquito Burrito Ranchito".parameterize,
+                    category_id: 3)
+
+    Vendor.create!(name: "The Mustard Seed",
+                    description: "Specializes in Premium Products",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "The Mustard Seed".parameterize,
+                    category_id: 3)
+
+    Vendor.create!(name: "Wise Ass Farm",
+                    description: "Specializes in Premium Products",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Wise Ass Farm".parameterize,
+                    category_id: 3)
+
+    Vendor.create!(name: "Gailan Farms",
+                    description: "Specializes in Premium Art",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Gailan Farms".parameterize,
+                    category_id: 4)
+
+    Vendor.create!(name: "Just One More Farm",
+                    description: "Specializes in Premium Art",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Just One More Farm".parameterize,
+                    category_id: 4)
+
+    Vendor.create!(name: "Hickory Wind",
+                    description: "Specializes in Premium Art",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Hickory Wind".parameterize,
+                    category_id: 4)
+
+    Vendor.create!(name: "Tinsel Tots Station",
+                    description: "Specializes in Premium Art",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Tinsel Tots Station".parameterize,
+                    category_id: 4)
+
+    Vendor.create!(name: "Styria Bakery",
+                    description: "Specializes in Premium Baked Goods",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Styria Bakery".parameterize,
+                    category_id: 5)
+
+    Vendor.create!(name: "Blissful Farm",
+                    description: "Specializes in Premium Baked Goods",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Blissful Farm".parameterize,
+                    category_id: 5)
+
+    Vendor.create!(name: "Butternut Ridge",
+                    description: "Specializes in Premium Baked Goods",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Butternut Ridge".parameterize,
+                    category_id: 5)
+
+    Vendor.create!(name: "Mini Donk-a-Donk",
+                    description: "Specializes in Premium Baked Goods",
+                    city: Faker::Address.city,
+                    state: Faker::Address.state,
+                    status: 0,
+                    slug: "Mini Donk-a-Donk".parameterize,
+                    category_id: 5)
     puts "Created Vendors"
   end
 
   def create_categories
-    puts "Creating Categories"
-    categories = []
-    100.times { categories << Faker::Commerce.department(1) }
-    categories = categories.uniq
-    10.times do Category.create!(
-      name: categories.pop,
-      kind: [0,1].sample
-      )
-    end
+    puts "Creating Vendor Categories"
+    Category.create!(name: "produce",
+    kind: 0)
+    Category.create!(name: "livestock",
+    kind: 0)
+    Category.create!(name: "miscellaneous",
+    kind: 0)
+    Category.create!(name: "art",
+    kind: 0)
+    Category.create!(name: "bakery",
+    kind: 0)
+    puts "Creating Item Categories"
+    Category.create!(name: "fruits",
+    kind: 1)
+    Category.create!(name: "vegetables",
+    kind: 1)
+    Category.create!(name: "arts & crafts",
+    kind: 1)
+    Category.create!(name: "meat & dairy",
+    kind: 1)
+    Category.create!(name: "baked goods",
+    kind: 1)
     puts "Created Categories"
   end
 
@@ -146,7 +309,3 @@ User.create!(username: "jorge@turing.io",
              state: Faker::Address.state,
              zip: Faker::Address.zip_code,
              vendor_id: nil)
-
-
-
-# finished_at: status == 3 ? Faker::Date.between(2.years.ago, Date.today) : nil,
