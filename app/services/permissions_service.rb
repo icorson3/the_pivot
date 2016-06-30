@@ -11,8 +11,10 @@ class PermissionsService
       super_admin_permissions
     elsif user.business_admin?
       business_admin_permissions
-    else
+    elsif user.username.presence
       registered_user_permissions
+    else
+      unregistered_user_permissions
     end
   end
 
@@ -29,6 +31,18 @@ class PermissionsService
 
   def registered_user_permissions
     true
+  end
+
+  def unregistered_user_permissions
+    return true if controller == "items" && action.in?(["index", "show"])
+    return true if controller == "users" && action.in?(["new", "create"])
+    return true if controller == "vendors" && action.in?(["index", "show"])
+    return true if controller == "categories" && action.in?(["index", "shows"])
+    return true if controller == "vendor/items" && action.in?(["index", "show"])
+    return true if controller == "sessions" && action.in?(["new", "create", "destroy"])
+    return true if controller == "search" && action.in?(["index"])
+    return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
+    return true if controller == "application" && action.in?(["get_favicon"])
   end
 
   def controller

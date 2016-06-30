@@ -34,6 +34,6 @@ RSpec.feature "admin login functions" do
   scenario "guest cannot view admin dashboard" do
     visit admin_dashboard_path
 
-    expect(current_path).to eq login_path
+    expect(current_path).to eq root_path
   end
 end
