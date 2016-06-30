@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20160630002613) do
     t.string  "slug"
   end
 
+  create_table "categories_items", id: false, force: :cascade do |t|
+    t.integer "item_id",     null: false
+    t.integer "category_id", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string  "name"
     t.string  "description"
