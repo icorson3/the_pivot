@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :vendors, only: [:index, :new, :create, :edit, :update]
 
+  resources :categories, only: [:index, :show]
+
   namespace :admin do
     get "/dashboard" => "users#show"
   end
@@ -30,5 +32,4 @@ Rails.application.routes.draw do
   get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
   get "/:vendor_slug", to: "vendors#show"
-  get "/:id" => "categories#show", as: "category"
 end

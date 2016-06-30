@@ -1,14 +1,15 @@
 class Category < ActiveRecord::Base
+  before_save :update_slug
   has_many :items
   has_many :vendors
 
   validates_format_of :name, :without => /\A\d/
-  validates :name, presence:true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
   enum kind: ["vendor", "item"]
 
-  def slug
-    name.parameterize
+  def update_slug
+    self.slug = name.parameterize
   end
 
   def to_param

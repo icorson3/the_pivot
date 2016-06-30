@@ -22,10 +22,10 @@
 
     <%= form_tag(cart_item_path(item), method: :put) do %>
       <td><%= select_tag(:quantity, options_for_select((1..10).to_a, item.quantity)) %></td>
-      <td><%= submit_tag("Update", class: "btn btn-lg btn-block") %></td>
+      <td><%= submit_tag("Update", class: "btn btn-sm btn-block") %></td>
     <% end %>
 
-    <td><%= button_to "Remove", cart_item_path(item), method: :delete, class: "btn btn-lg btn-block", id: "cart-remove" %></td>
+    <td><%= button_to "Remove", cart_item_path(item), method: :delete, class: "btn btn-sm btn-block", id: "cart-remove" %></td>
   </tr>
 <% end %>
 </table>
