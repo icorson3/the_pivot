@@ -20,7 +20,7 @@ RSpec.feature "Authenticated User has correct privledges" do
 
     visit admin_dashboard_path
 
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).to have_content("You are not authorized to view this page.")
   end
 
   scenario "cannot manually create admin user role", type: :request do
