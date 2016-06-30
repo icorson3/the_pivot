@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
-  has_many :categories_items
-  has_many :categories, through: :categories_items
+  belongs_to :vendor
+  belongs_to :category
+
   has_many :order_items
 
   validates :name, presence: true
@@ -18,4 +19,10 @@ class Item < ActiveRecord::Base
     order_item = self.order_items.find_by(order_id: order_id)
     order_item.subtotal
   end
+
+  def self.search(search)
+    query = "%#{search}%"
+    self.where("name ILIKE ? or description ILIKE ?", query, query)
+  end
+
 end

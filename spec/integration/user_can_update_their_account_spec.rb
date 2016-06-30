@@ -16,7 +16,6 @@ RSpec.feature "User can update account" do
 
     fill_in "Username", with: new_user_name
     fill_in "Password", with: user.password
-    fill_in "Confirm Password", with: user.password
 
     click_button "Update Information"
     expect(current_path).to eq(dashboard_path)

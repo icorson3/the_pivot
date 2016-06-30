@@ -11,8 +11,8 @@ FactoryGirl.define do
     zip "1234"
     role "default"
 
-    factory :user_with_orders do
-      orders { create_list(:order, 3) }
+    factory :user_with_order do
+      orders { create_list(:order_with_items, 3) }
     end
   end
 
@@ -22,6 +22,8 @@ FactoryGirl.define do
     price "5.99"
     image "http://i.imgur.com/kgOqHMk.gif"
     status 0
+    vendor
+    category
   end
 
   factory :category do
@@ -32,7 +34,19 @@ FactoryGirl.define do
     user
     status 0
 
-    factory "order_with_items" do
+    factory :order_with_items do
+      items { create_list(:item, 3) }
+    end
+  end
+
+  factory :vendor do
+    name {Faker::Name.name}
+    description "all the things"
+    city "denver"
+    state "CO"
+    status "pending"
+
+    factory :vendor_with_items do
       items { create_list(:item, 3) }
     end
   end
