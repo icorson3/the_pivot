@@ -42,7 +42,6 @@
 }
 
 #category-navbar {
-  width: 100%;
     text-align: left;
     > li {
       float: none;
@@ -55,11 +54,18 @@
 }
 
 #category-link {
+  color: #EEF5DB;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-#category-nav { a:link, a:visited, a:hover, a:active { color:#EEF5DB; } }
+#category-link:hover {
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#category-nav { a:link, a:visited, a:hover, a:active { color:#black; } }
 
 //----------Index Header---------
 #page_header {
@@ -214,6 +220,13 @@ img.img-thumbnail {
   border-top: 1px solid #616161 !important;
 }
 
+.text-white {
+  color: #F4F1ED
+}
+.text-white:visited {
+  color: #F4F1ED
+}
+
 .search {
    background: transparent;
    width: 268px;
@@ -244,6 +257,10 @@ input.search-query {
     padding: 30px 15px;
     background: #CECECE;
     background: rgba(245,245,245,0.7);
+}
+
+.approve-right {
+  padding-left: 200px;
 }
 
 @media screen and (min-width:1200px) {

@@ -2,6 +2,10 @@ class VendorsController < ApplicationController
 
   def index
     @vendors = Vendor.all
+
+    @approved = Vendor.where(status: "approved")
+    @rejected = Vendor.where(status: "rejected")
+    @retired = Vendor.where(status: "retired")
   end
 
   def show
@@ -31,7 +35,7 @@ class VendorsController < ApplicationController
   def update
     @vendor = Vendor.find(params[:id])
     if @vendor.update(vendor_params)
-      redirect_to dashboard_path
+      redirect_to vendor_show_path(@vendor.slug)
     else
       flash.now[:error] = @vendor.errors.full_messages[0]
       render :edit
@@ -40,6 +44,6 @@ class VendorsController < ApplicationController
 
   private
     def vendor_params
-      params.require(:vendor).permit(:name, :description, :city, :state)
+      params.require(:vendor).permit(:name, :description, :city, :state, :status)
     end
 end
