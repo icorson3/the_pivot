@@ -213,3 +213,19 @@ img.img-thumbnail {
 .table td {
   border-top: 1px solid #616161 !important;
 }
+
+.search {
+   background: transparent;
+   width: 268px;
+   padding: 13px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+
+input.search-query {
+  color: black;
+  }
