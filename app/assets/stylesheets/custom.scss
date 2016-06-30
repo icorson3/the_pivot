@@ -202,10 +202,54 @@ img.img-thumbnail {
   color: #1D1D1D;
 }
 
+.black-line {
+  border-top: 1px solid #060606;
+}
+
 .order:hover {
   color: #1D1D1D;
 }
 
 .table td {
   border-top: 1px solid #616161 !important;
+}
+
+.search {
+   background: transparent;
+   width: 268px;
+   padding: 13px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+}
+
+input.search-query {
+  color: black;
+}
+
+.brand-name {
+    margin: 0;
+    font-size: 4em;
+}
+
+.paragraph-increase {
+  font-size: 18px;
+}
+
+.box {
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #CECECE;
+    background: rgba(245,245,245,0.7);
+}
+
+@media screen and (min-width:1200px) {
+    .box:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
 }

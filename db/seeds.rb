@@ -1,7 +1,4 @@
 class Seed
-
-  #ELA Family Farms
-
   def initialize
     create_categories
     create_vendors
@@ -12,9 +9,7 @@ class Seed
   end
 
   def create_items
-    # status = [0,1]
     puts "Creating Items"
-
     Item.create!(name: "Apples",
                   description: "Delicous Apples",
                   price: Faker::Number.decimal(2),
@@ -22,27 +17,16 @@ class Seed
                   status: 0,
                   vendor_id: 1,
                   category_id: 1)
-    # # byebug
-    # Category.all.each do |category|
-    #   50.times do
-    #     Item.create!(
-    #       name: Faker::Commerce.product_name,
-    #       description: Faker::Hipster.sentence,
-    #       price: Faker::Number.decimal(2),
-    #       image: Faker::Avatar.image,
-    #       status: status.sample,
-    #       vendor_id: vendor.id,
-    #       category_id: category.id
-    #     )
-    #   end
-    # end
     puts "Created Items"
   end
 
   def create_users
     puts "Creating Users"
+    usernames = []
+    200.times { usernames << Faker::Internet.user_name }
+    usernames = usernames.uniq
     99.times do
-      username = Faker::Internet.user_name
+      username = usernames.pop
       User.create!(
       username: username,
       password: Faker::Internet.password,
@@ -61,7 +45,6 @@ class Seed
 
   def create_vendors
     puts "Creating Vendors"
-
     Vendor.create!(name: "Blue Barn Farms",
                    description: "Specializes in Premium Peaches and Apples",
                    city: Faker::Address.city,
@@ -221,6 +204,18 @@ class Seed
                     status: 0,
                     slug: "Mini Donk-a-Donk".parameterize,
                     category_id: 5)
+    20.times do
+      name = Faker::Company.name
+      Vendor.create!(
+      name: name,
+      description: Faker::Hipster.paragraph,
+      city: Faker::Address.city,
+      state: Faker::Address.state,
+      status: %w(pending approved rejected retired).sample,
+      slug: name.parameterize,
+      category_id: rand(1..10)
+      )
+    end
     puts "Created Vendors"
   end
 
@@ -257,11 +252,12 @@ class Seed
         status = [0,1,2,3].sample
         time = Faker::Date.between(2.years.ago, Date.today) if status == 3
         item_ids = (1...500).to_a.sample(10)
-        Order.create!(
+        order = Order.create!(
         status: status,
         finished_at: time,
         user_id: user.id
         )
+        add_items(order, item_ids)
       end
     end
     puts "Created Orders"
@@ -282,6 +278,16 @@ class Seed
       zip: Faker::Address.zip_code,
       vendor_id: vendor.id
       )
+    end
+  end
+
+  private
+
+  def add_items(order, items)
+    10.times do |i|
+      item = Item.find(items.pop)
+      order.items << item
+      puts "#{i}: Added item #{item.name} to order #{order.id}."
     end
   end
 end
