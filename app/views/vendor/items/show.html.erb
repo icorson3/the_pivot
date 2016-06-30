@@ -6,6 +6,8 @@
   <div class="col-md-8" id="item_details">
     <h2><%= @item.name %></h2>
     <p><%= @item.description %></p>
+    <p> Vendor - <%= link_to @item.vendor.name, vendor_path, class: "text-muted order" %> </p>
+    <p> Category - <%= link_to @item.category.name, category_path(@item.category), class: "text-muted order" %> </p>
     <h5>$<%= @item.price %></h5>
 
     <% if @item.active? %>

@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_many :orders
+  belongs_to :vendor
 
   validates :username, presence: :true, uniqueness: :true
-  validates :password, presence: :true
+  validates :password, presence: :true, on: :create
   validates :email, presence: :true
   validates :name, presence: :true
   validates :address, presence: :true
@@ -15,9 +16,6 @@ class User < ActiveRecord::Base
   validates_confirmation_of :email, message: "does not match"
 
 
-  enum role:["default", "admin"]
-
-  def to_param
-  end
+  enum role:["default", "business_admin", "super_admin"]
 
 end

@@ -7,7 +7,7 @@ RSpec.feature "logged in user can check out" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit item_path(item)
+    visit vendor_item_path(item.vendor.slug, item)
     click_button("Add to cart")
 
     visit cart_path

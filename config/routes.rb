@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "items#index"
+  root :to => "root#show"
 
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :index, :create]
@@ -7,13 +7,23 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create, :show, :edit, :update]
 
+  resources :vendors, only: [:index, :new, :create, :edit, :update]
+
+  resources :categories, only: [:index, :show]
+
   namespace :admin do
     get "/dashboard" => "users#show"
+  end
+
+  namespace :vendor, path: ':vendor_slug' do
+    resources :items, only: [:index, :show]
   end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/search', to: 'search#index'
 
   patch "/user/edit", to: "users#update"
   get "admin/user/edit" => "users#edit", as: "admin_edit_user"
@@ -21,5 +31,5 @@ Rails.application.routes.draw do
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
-  get "/:id" => "categories#show", as: "category"
+  get "/:vendor_slug", to: "vendors#show", as: "vendor_show"
 end

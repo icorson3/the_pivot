@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   context "validations" do
     it { should validate_presence_of(:name) }
-    it { should validate_uniqueness_of(:name) }
-    it { should have_many(:categories_items) }
-    it { should respond_to(:categories_items) }
     it { should respond_to(:items) }
   end
 
@@ -22,12 +19,12 @@ RSpec.describe Category, type: :model do
   end
 
   it "gets the name into parameter format" do
-    category = Category.new(name: "tHis thInG")
+    category = Category.create(name: "tHis thInG")
     expect(category.slug).to eq("this-thing")
   end
 
   it "uses the slug for the parameter" do
-    category = Category.new(name: "tHis thInG")
+    category = Category.create(name: "tHis thInG")
     expect(category.to_param).to eq("this-thing")
   end
 
