@@ -238,3 +238,18 @@ input.search-query {
 .paragraph-increase {
   font-size: 18px;
 }
+
+.box {
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #CECECE;
+    background: rgba(245,245,245,0.7);
+}
+
+@media screen and (min-width:1200px) {
+    .box:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
