@@ -12,8 +12,9 @@ RSpec.feature "user searches for an item using search bar", type: :feature do
     expect(page.text).to have_content("#{vendors[0].items.first.name}")
 
     expect(current_path).to eq("/search")
+
     click_on "#{vendors[0].items.first.name}"
-    expect(current_path).to eq("/items/#{vendors[0].items.first.id}")
+    expect(current_path).to eq(vendor_item_path(vendors[0].slug, vendors[0].items.first))
     expect(page.text).to have_content("#{vendors[0].items.first.name}")
 
     expect(page.text).to have_content("#{vendors[0].items.first.name}")
