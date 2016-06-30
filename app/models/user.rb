@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :vendor
 
   validates :username, presence: :true, uniqueness: :true
-  validates :password, presence: :true
+  validates :password, presence: :true, on: :create
   validates :email, presence: :true
   validates :name, presence: :true
   validates :address, presence: :true

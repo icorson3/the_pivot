@@ -15,8 +15,7 @@ class VendorsController < ApplicationController
   def create
     @vendor = Vendor.new(vendor_params)
     if @vendor.save
-      current_user.vendor = @vendor
-      current_user.update_attributes(role: 1)
+      current_user.update(vendor: @vendor, role: 1)
       flash[:welcome] = "Thanks for applying to be a vendor!"
       redirect_to dashboard_path
     else
