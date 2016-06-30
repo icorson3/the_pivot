@@ -61,7 +61,7 @@ class Seed
       description: Faker::Hipster.paragraph,
       city: Faker::Address.city,
       state: Faker::Address.state,
-      status:[0,1,2,3],
+      status:%w(pending approved rejected retired).sample,
       slug: name.parameterize,
       category_id: rand(1..10)
       )
