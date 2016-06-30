@@ -38,7 +38,7 @@
 
 #category-nav .navbar-header {
   padding-top: 5px;
-  color: grey;
+  color: gray;
 }
 
 #category-navbar {
@@ -134,7 +134,7 @@
 }
 
 a:visited {
-  color: #EEF5DB;
+  color: gray;
 }
 
 //----------Cart---------
@@ -176,8 +176,11 @@ a:visited {
 }
 
 .btn {
-  background-color: #C7EFCF;
+  background-color: #C9EDDC;
 }
+// .btn:hover {
+//   background-color: red;
+// }
 
 //----------General---------
 html {
@@ -185,7 +188,7 @@ html {
 }
 
 body {
-  background-color: #D6D1B1;
+  background-color: #E7DFC6;
   height: 100%;
   //background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
   font-family: 'Lato', serif;
@@ -193,4 +196,16 @@ body {
 img.img-thumbnail {
     box-shadow: 6px 6px 30px #aaa;
     box-shadow: 8;
+}
+
+.text-dark{
+  color: #1D1D1D;
+}
+
+.order:hover {
+  color: #1D1D1D;
+}
+
+.table td {
+  border-top: 1px solid #616161 !important;
 }

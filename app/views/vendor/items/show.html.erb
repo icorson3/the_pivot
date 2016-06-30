@@ -6,6 +6,8 @@
   <div class="col-md-8" id="item_details">
     <h2><%= @item.name %></h2>
     <p><%= @item.description %></p>
+    <p> Vendor - <%= @item.vendor.name %> </p>
+    <p> Category - <%= @item.category.name %> </p>
     <h5>$<%= @item.price %></h5>
 
     <% if @item.active? %>

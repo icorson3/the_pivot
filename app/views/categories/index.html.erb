@@ -1,0 +1,21 @@
+<% @categories.each_slice(3) do |categories| %>
+ <div class="row">
+   <div class ="center">
+   <% categories.each do |category| %>
+   <div class="col-md-4">
+     <div id="category-card">
+       <%= link_to category.name, categories_path %>
+     </div>
+   </div>
+   <% end %>
+   </div>
+ </div>
+<% end %>
+
+<% @categories.each do |category| %>
+<div class="col-md-3">
+  <div class="text-center">
+    <h3> <%= link_to category.name, category_path(category) %> </h3>
+  </div>
+</div>
+<% end %>
