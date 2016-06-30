@@ -2,7 +2,7 @@
 <% if @user.super_admin? %>
   <%= link_to "Update Personal Account Information", admin_edit_user_path, class: "btn btn-default text-dark" %><br><br>
 <% else %>
-  <%= link_to "Update Personal Account Information", edit_user_path %>
+  <br><%= link_to "Update Personal Account Information", edit_user_path, class: "btn btn-default text-dark" %>
 <% end %>
 
 <% if @user.orders.any? %>
