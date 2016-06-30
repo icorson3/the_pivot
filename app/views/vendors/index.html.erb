@@ -1,6 +1,6 @@
 <h1>All Vendors</h1>
 <ul>
 <% @vendors.each do |vendor| %>
-  <li><%= link_to vendor.name, vendor_items_path(vendor.slug) %></li>
+  <li><%= link_to vendor.name, vendor_path(vendor.slug), class: "text-muted order" %></li>
 <% end %>
 </ul>

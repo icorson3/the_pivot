@@ -1,4 +1,4 @@
-<div id="login">
+<br><br><div id="login">
   <%= form_for(:session, url: login_path, class: "horizontal-form") do |f| %>
     <div class="form-group">
       <%= f.label :username %>
@@ -16,6 +16,6 @@
   <% end  %>
 
   <div>
-    <%= link_to "Create Account", new_user_path %>
+    <%= link_to "Create Account", new_user_path, class: "text-muted order" %>
   </div>
 </div>

@@ -31,8 +31,11 @@ class Seed
 
   def create_users
     puts "Creating Users"
+    usernames = []
+    200.times { usernames << Faker::Internet.user_name }
+    usernames = usernames.uniq
     99.times do
-      username = Faker::Internet.user_name
+      username = usernames.pop
       User.create!(
       username: username,
       password: Faker::Internet.password,
@@ -58,7 +61,7 @@ class Seed
       description: Faker::Hipster.paragraph,
       city: Faker::Address.city,
       state: Faker::Address.state,
-      status:[0,1,2,3],
+      status:%w(pending approved rejected retired).sample,
       slug: name.parameterize,
       category_id: rand(1..10)
       )
@@ -86,11 +89,12 @@ class Seed
         status = [0,1,2,3].sample
         time = Faker::Date.between(2.years.ago, Date.today) if status == 3
         item_ids = (1...500).to_a.sample(10)
-        Order.create!(
+        order = Order.create!(
         status: status,
         finished_at: time,
         user_id: user.id
         )
+        add_items(order, item_ids)
       end
     end
     puts "Created Orders"
@@ -111,6 +115,16 @@ class Seed
       zip: Faker::Address.zip_code,
       vendor_id: vendor.id
       )
+    end
+  end
+
+  private
+
+  def add_items(order, items)
+    10.times do |i|
+      item = Item.find(items.pop)
+      order.items << item
+      puts "#{i}: Added item #{item.name} to order #{order.id}."
     end
   end
 end
