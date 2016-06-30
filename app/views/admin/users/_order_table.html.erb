@@ -2,7 +2,7 @@
   <th>Order Number</th>
 <% @orders.objects(status_number).each do |order| %>
   <tr>
-    <td><%= link_to order.id, order_path(order) %></td>
+    <td><%= link_to order.id, order_path(order), class: "text-muted order" %></td>
   </tr>
 <% end %>
 </table>
