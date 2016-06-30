@@ -4,7 +4,7 @@ RSpec.feature "Visitor can add items to their cart" do
   scenario "They click on the add to cart link from an item page" do
     item = create(:item)
 
-    visit item_path(item.id)
+    visit vendor_item_path(item.vendor.slug, item.id)
     click_button "Add to cart"
     click_link "Cart"
 
