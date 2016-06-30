@@ -13,7 +13,15 @@ class Seed
 
   def create_items
     # status = [0,1]
-    # puts "Creating Items"
+    puts "Creating Items"
+
+    Item.create!(name: "Apples",
+                  description: "Delicous Apples",
+                  price: Faker::Number.decimal(2),
+                  image: "https://pixabay.com/photo-661694",
+                  status: 0,
+                  vendor_id: 1,
+                  category_id: 1)
     # # byebug
     # Category.all.each do |category|
     #   50.times do
