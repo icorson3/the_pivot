@@ -5,6 +5,14 @@
   <%= link_to "Update Personal Account Information", edit_user_path %>
 <% end %>
 
+<% if @user.vendor.nil? %>
+  <%= link_to "Apply to be a Vendor", new_vendor_path%>
+<% end %>
+
+<% if @user.vendor %>
+  <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor) %>
+<% end %>
+
 <% if @user.orders.any? %>
   <%= link_to "Order History", orders_path %>
 <% end %>
