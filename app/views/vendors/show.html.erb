@@ -11,7 +11,7 @@
           <% elsif @vendor.status == "approved" %>
             <%= link_to "Retire", vendor_path(@vendor, vendor: {status: "retired"}), method: :patch, class: "text-white btn-danger btn-sm" %>
           <% elsif @vendor.status == "retired" %>
-            <%= link_to "Activate", vendor_path(@vendor, vendor: {status: "approved"}), method: :patch, class: "text-white btn-danger btn-sm" %>
+            <%= link_to "Restore", vendor_path(@vendor, vendor: {status: "approved"}), method: :patch, class: "text-white btn-danger btn-sm" %>
           <% end %>
         <% end %>
       </div>
@@ -22,7 +22,9 @@
   </div>
   <div class="row">
     <div class="text-center">
-      <h3> <%= link_to "Items", vendor_items_path(@vendor.slug), class: "text-muted order" %> </h3>
+      <% if @vendor.status == "approved" %>
+        <h3> <%= link_to "Items", vendor_items_path(@vendor.slug), class: "text-muted order" %> </h3>
+      <% end %>
   <hr class="black-line">
   <div class="row">
     <div class="col-md-4 text-center">

@@ -4,7 +4,7 @@
     <% array.each do |vendor| %>
       <div class="col-md-12">
         <div class="text-center">
-          <p style="background-color:#FDFDFD"> <%= link_to vendor.name, vendor_show_path(vendor) %> -
+          <p style="background-color:#FDFDFD"> <%= link_to vendor.name, vendor_show_path(vendor.slug) %>
          </p>
         </div>
       </div>

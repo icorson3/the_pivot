@@ -12,4 +12,7 @@
     <li><%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %></li>
     <% end %>
   </ul>
+  <p>
+    Don't see your favorite store? Perhaps it was retired, check <%= link_to "here", retired_vendors_path %> to see.
+  </p>
 <% end %>

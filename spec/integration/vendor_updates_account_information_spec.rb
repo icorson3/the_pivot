@@ -29,6 +29,6 @@ RSpec.feature "vendor updates information" do
 
     click_on "Update"
 
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq(vendor_show_path(user.vendor.slug))
   end
 end

@@ -44,7 +44,7 @@ FactoryGirl.define do
     description "all the things"
     city "denver"
     state "CO"
-    status "pending"
+    status "approved"
 
     factory :vendor_with_items do
       items { create_list(:item, 3) }

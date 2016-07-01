@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
   end
 
+  namespace :retired do
+    resources :vendors, only: [:index]
+  end
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
