@@ -1,6 +1,18 @@
-<h1>All Vendors</h1>
-<ul>
-<% @vendors.each do |vendor| %>
-  <li><%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %></li>
+<div class="text-center">
+  <h1>All Vendors</h1>
+</div>
+
+<% if current_super_admin? %>
+  <%= render partial: 'vendor_status_rows', locals: {array: @approved, title: "approved"} %>
+  <%= render partial: 'vendor_status_rows', locals: {array: @rejected, title: "rejected"} %>
+  <%= render partial: 'vendor_status_rows', locals: {array: @retired, title: "retired"} %>
+<% else %>
+  <ul>
+    <% @approved.each do |vendor| %>
+    <li><%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %></li>
+    <% end %>
+  </ul>
+  <p>
+    Don't see your favorite store? Perhaps it was retired, check <%= link_to "here", retired_vendors_path %> to see.
+  </p>
 <% end %>
-</ul>

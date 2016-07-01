@@ -1,21 +1,27 @@
-<div class="row">
-  <div class="col-md-4" id="item_image">
-    <img src="<%= @item.image %>" alt="<%= @item.name %>" class="img-thumbnail"/>
-  </div>
+<% if @vendor.status == "approved" && @vendor == @item.vendor %>
+  <div class="row">
+    <div class="col-md-4" id="item_image">
+      <img src="<%= @item.image %>" alt="<%= @item.name %>" class="img-thumbnail"/>
+    </div>
 
-  <div class="col-md-8" id="item_details">
-    <h2><%= @item.name %></h2>
-    <p><%= @item.description %></p>
-    <p> Vendor - <%= link_to @item.vendor.name, vendor_path, class: "text-muted order" %> </p>
-    <p> Category - <%= link_to @item.category.name, category_path(@item.category), class: "text-muted order" %> </p>
-    <h5>$<%= @item.price %></h5>
+    <div class="col-md-8" id="item_details">
+      <h2><%= @item.name %></h2>
+      <p><%= @item.description %></p>
+      <p> Vendor - <%= link_to @item.vendor.name, vendor_path, class: "text-muted order" %> </p>
+      <p> Category - <%= link_to @item.category.name, category_path(@item.category), class: "text-muted order" %> </p>
+      <h5>$<%= @item.price %></h5>
 
-    <% if @item.active? %>
-    <%= button_to "Add to cart", cart_items_path(id: @item), class: "btn" %>
-    <% else %>
-    <p>
-      Item Retired
-    </p>
-    <% end  %>
+      <% if @item.active? %>
+      <%= button_to "Add to cart", cart_items_path(id: @item), class: "btn" %>
+      <% else %>
+      <p>
+        Item Retired
+      </p>
+      <% end  %>
+    </div>
   </div>
+<% else %>
+<div class="text-center">
+  <h1>We're Sorry, but this item does not exist for this vendor</h1>
 </div>
+<% end %>

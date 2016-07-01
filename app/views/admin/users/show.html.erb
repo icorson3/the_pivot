@@ -3,6 +3,10 @@
 
 <div>
   <div class="btn-group">
+    <button type="button" class="btn btn-default" id="pending">
+      Pending Vendors
+      <span class="badge"><%= @vendors.count %></span>
+    </button>
     <button type="button" class="btn btn-default" id="all">
       All Orders
       <span class="badge"><%= @orders.count %></span>
@@ -25,6 +29,18 @@
       </button>
   </div>
 </div>
+
+<table class="table order_table" id="pending_orders">
+  <th>Vendor Name</th>
+  <th>Vendor Satus</th>
+
+  <% @vendors.each do |vendor| %>
+    <tr>
+      <td> <%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %> </td>
+      <td> <%= vendor.status %> </td>
+    </tr>
+  <% end %>
+</table>
 
 <table class="table order_table" id="all_orders">
   <th>Order Number</th>
