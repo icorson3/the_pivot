@@ -28,6 +28,7 @@ FactoryGirl.define do
 
   factory :category do
     name
+    kind 1
   end
 
   factory :order do

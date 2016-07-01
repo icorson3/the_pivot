@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :vendor, path: ':vendor_slug' do
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show, :new, :create, :edit, :update]
   end
 
   namespace :retired do
