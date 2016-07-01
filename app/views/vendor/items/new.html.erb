@@ -1,20 +1,3 @@
 <h1>Add Item for <%= @vendor.name %></h1>
 
-<%= form_for [@vendor, @item] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.label :price %>
-  <%= f.number_field :price, :step => 0.01 %>
-
-  <%= f.label :image %>
-  <%= f.text_field :image %>
-
-  <%= f.label :category %>
-  <%= f.collection_select(:category_id, @categories, :id, :name, :include_blank => "Select Category") %>
-
-  <%= f.submit "Create Item" %>
-<% end %>
+<%= render partial: 'form' %>

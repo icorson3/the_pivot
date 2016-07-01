@@ -7,9 +7,7 @@
 
 <% if @user.vendor.nil? %>
   <%= link_to "Apply to be a Vendor", new_vendor_path%>
-<% end %>
-
-<% if @user.vendor.status == "approved" %>
+<% elsif @user.vendor.status == "approved" %>
   <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor) %>
   <%= link_to "Add Item to My Store", new_vendor_item_path(@user.vendor.slug) %>
 <% elsif @user.vendor.status == "pending" %>

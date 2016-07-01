@@ -17,6 +17,9 @@ RSpec.feature "vendor updates information" do
 
     click_on "Apply Now!"
 
+    user.vendor.update(status: "approved")
+    visit dashboard_path
+
     click_on "Edit Vendor Information"
 
     expect(current_path).to eq(edit_vendor_path(user.vendor))

@@ -50,7 +50,7 @@ RSpec.feature "business admin can manage items in their store" do
     fill_in "Image", with: "http://www.cultivaipm.com/wp-content/uploads/2013/10/cherries.jpg"
     select category.name, from: "item[category_id]"
 
-    click_on "Update Item"
+    click_on "Create Item"
 
     expect(page).to have_content "Cherries"
     expect(page).to have_content "The best ever!"

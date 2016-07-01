@@ -23,7 +23,7 @@ class Vendor::ItemsController < ApplicationController
       flash[:success] = "Created new item #{@item.name}!"
       redirect_to vendor_item_path(@vendor.slug, @item)
     else
-      flash.now[:error] = @user.errors.full_messages[0]
+      flash.now[:error] = @item.errors.full_messages[0]
       render :new
     end
   end
@@ -39,7 +39,7 @@ class Vendor::ItemsController < ApplicationController
       flash[:success] = "Created new item #{@item.name}!"
       redirect_to vendor_item_path(@item.vendor.slug, @item)
     else
-      flash.now[:error] = @user.errors.full_messages[0]
+      flash.now[:error] = @item.errors.full_messages[0]
       render :new
     end
   end
