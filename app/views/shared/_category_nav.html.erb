@@ -5,5 +5,10 @@
       <li><%= link_to "Categories", categories_path, class: "order", id: "category-link" %></li>
       <li><%= link_to "Items", items_path, class: "order", id: "category-link" %></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+      <li><%= link_to "Welcome #{current_user.username}! - Visit your Dashboard", dashboard_path, class: "order", id: "category-link" %></li>
+      <% end  %>
+    </ul>
   </div>
 </nav>
