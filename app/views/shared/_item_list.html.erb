@@ -1,3 +1,5 @@
+Items Per Page <%= select_tag :per_page, options_for_select([15, 30, 60], params[:per_page]),
+:onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
 <% @items.each_slice(3) do |items| %>
  <div class="row">
    <div class ="center">
@@ -15,3 +17,4 @@
    </div>
  </div>
 <% end %>
+  <%= will_paginate @items %>

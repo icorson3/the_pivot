@@ -12,7 +12,6 @@ class Seed
   def create_items
     status = [0,1]
     puts "Creating Items"
-    # byebug
     Category.all.each do |category|
       50.times do
         Item.create!(
@@ -61,7 +60,7 @@ class Seed
       description: Faker::Hipster.paragraph,
       city: Faker::Address.city,
       state: Faker::Address.state,
-      status:%w(pending approved rejected retired).sample,
+      status: %w(pending approved rejected retired).sample,
       slug: name.parameterize,
       category_id: rand(1..10)
       )
@@ -160,7 +159,3 @@ User.create!(username: "jorge@turing.io",
              state: Faker::Address.state,
              zip: Faker::Address.zip_code,
              vendor_id: nil)
-
-
-
-# finished_at: status == 3 ? Faker::Date.between(2.years.ago, Date.today) : nil,
