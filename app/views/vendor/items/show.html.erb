@@ -18,14 +18,12 @@
       <% if @item.active? %>
         <%= button_to "Add to cart", cart_items_path(id: @item), class: "btn" %>
       <% else %>
-      <p>
-        Item Retired
-      </p>
+        <p>Item Retired</p>
       <% end  %>
     </div>
   </div>
 <% else %>
-<div class="text-center">
-  <h1>We're Sorry, but this item does not exist for this vendor</h1>
-</div>
+  <div class="text-center">
+    <h1>We're Sorry, but this item does not exist for this vendor</h1>
+  </div>
 <% end %>
