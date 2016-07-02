@@ -1,8 +1,8 @@
 <h2> Welcome, <%= @user.name %></h2>
 <% if @user.super_admin? %>
-  <%= link_to "Update Personal Account Information", admin_edit_user_path, class: "btn btn-default text-dark" %><br><br>
+  <%= link_to "Update Personal Account Information", edit_user_path(@user), class: "btn btn-default text-dark" %><br><br>
 <% else %>
-  <br><%= link_to "Update Personal Account Information", edit_user_path, class: "btn btn-default text-dark" %>
+  <br><%= link_to "Update Personal Account Information", edit_user_path(@user), class: "btn btn-default text-dark" %>
 <% end %>
 
 <% if @user.vendor.nil? %>
