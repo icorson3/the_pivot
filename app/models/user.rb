@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
   validates_confirmation_of :email, message: "does not match"
 
 
-  enum role:["default", "business_admin", "super_admin"]
+  enum role: { default: 0 , business_admin: 1, super_admin: 2 }
+
+  def self.search(search)
+    query = "%#{search}%"
+    self.where("username ILIKE ?", query)
+  end
 
 end

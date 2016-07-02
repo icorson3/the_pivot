@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     return redirect_to login_path if current_user.nil?
 
     @user = current_user
+    @users = User.all
+    @users = User.search(params[:search]).order("username DESC")
 
     if current_user.super_admin?
       redirect_to admin_dashboard_path
@@ -29,11 +31,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    if current_user.update(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages[0]
@@ -46,6 +49,6 @@ private
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation,
                                  :email, :email_confirmation, :name, :address,
-                                 :city, :state, :zip)
+                                 :city, :state, :zip, :vendor_id, :role)
   end
 end

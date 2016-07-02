@@ -1,0 +1,4 @@
+
+  <% @users.each do |user| %>
+  <p><%= user.username %> - <%= button_to "Add Admin", user_path(user, user: {role: "business_admin", vendor_id: @user.vendor}), method: :patch, class: "text-white btn-success btn-sm" %></p>
+  <% end %>
