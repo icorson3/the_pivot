@@ -12,6 +12,6 @@ RSpec.feature 'Visitor can remove items from their cart' do
     end
 
     expect(page).to have_current_path(cart_path)
-    expect(page).to have_content "Total Price: $0"
+    expect(page).to have_content "There are no items in your cart"
   end
 end
