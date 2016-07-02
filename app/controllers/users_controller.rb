@@ -20,12 +20,15 @@ class UsersController < ApplicationController
     return redirect_to login_path if current_user.nil?
 
     @user = current_user
+    @users = User.all
+    @users = User.search(params[:search]).order("username DESC")
 
     if current_user.super_admin?
       redirect_to admin_dashboard_path
     else
       render :show
     end
+
   end
 
   def edit

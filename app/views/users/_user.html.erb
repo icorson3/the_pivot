@@ -1,0 +1,4 @@
+
+  <% @users.each do |user| %>
+  <p><%= user.username %> - <%= button_to "Add Admin", admin_edit_user_path(user, user.vendor), method: :patch %></p>
+  <% end %>
