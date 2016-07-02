@@ -30,7 +30,7 @@ RSpec.feature "Authenticated User has correct privledges" do
                            email_confirmation: "test@test.com",
                            name: "John Doe",
                            address: "1234 Fake Street", city: "Faketown",
-                           state: "FT", zip: "12345", role: 1 }
+                           state: "FT", zip: "12345", role: "business_admin" }
 
     expect(response).to redirect_to(dashboard_path)
     follow_redirect!
