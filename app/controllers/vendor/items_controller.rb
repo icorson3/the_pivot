@@ -1,7 +1,8 @@
 class Vendor::ItemsController < ApplicationController
   def index
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
-    @items = @vendor.items
+    @per_page = params[:per_page] || 15
+    @items = @vendor.items.paginate(:per_page => @per_page, :page => params[:page])
   end
 
   def show

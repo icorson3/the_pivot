@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.xfeature "Visitor can see all items for a vendor", :type => :feature do
+RSpec.feature "Visitor can see all items for a vendor", :type => :feature do
   scenario "visitor visits the vendor items page" do
     vendor_1 = create(:vendor_with_items)
     vendor_2 = create(:vendor_with_items)
