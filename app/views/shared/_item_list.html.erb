@@ -17,6 +17,4 @@ Items Per Page <%= select_tag :per_page, options_for_select([15, 30, 60], params
    </div>
  </div>
 <% end %>
-<% if @items.size > 0 %>
   <%= will_paginate @items %>
-<% end %>
