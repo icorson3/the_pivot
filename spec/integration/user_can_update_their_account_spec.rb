@@ -22,5 +22,6 @@ RSpec.feature "User can update account" do
 
     expect(page).to have_content(new_user_name)
     expect(page).not_to have_content(user.username)
+    expect(page).to have_content("#{user.name}'s information has been updated.")
   end
 end

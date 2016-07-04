@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:success] = "#{@user.name}'s information has been updated."
       redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages[0]
