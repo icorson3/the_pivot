@@ -36,5 +36,6 @@ RSpec.feature "business admin controls other business admins" do
    expect(current_path).to eq(dashboard_path)
    expect(user_updated.vendor.id).to eq(business_admin.vendor.id)
    expect(user_updated.role).to eq("business_admin")
+   expect(page).to have_content("#{user.username}'s information has been updated.")
  end
 end
