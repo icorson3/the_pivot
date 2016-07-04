@@ -24,4 +24,20 @@ RSpec.feature "User can update account" do
     expect(page).not_to have_content(user.username)
     expect(page).to have_content("#{new_user_name}'s information has been updated.")
   end
+
+  scenario "can't update with bad information" do
+    user = create(:user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit dashboard_path
+
+    click_link "Update Personal Account Information"
+
+    fill_in "City", with: ""
+
+    click_button "Update Information"
+
+    expect(page).to have_content("City can't be blank")
+  end
 end
