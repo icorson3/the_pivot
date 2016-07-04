@@ -25,4 +25,8 @@ class Item < ActiveRecord::Base
     self.where("name ILIKE ? or description ILIKE ?", query, query)
   end
 
+  def self.from_approved_vendors
+    self.joins(:vendor).where(vendors: {status: "approved"})
+  end
+
 end
