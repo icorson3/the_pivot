@@ -25,7 +25,7 @@ RSpec.feature "vendor updates information" do
     expect(current_path).to eq(edit_vendor_path(user.vendor))
 
     within("h1") do
-      expect(page).to have_content("Edit Vendor Information")
+      expect(page).to have_content("Update Vendor Information")
     end
 
     fill_in "Description", with: "fruits and vegetables"

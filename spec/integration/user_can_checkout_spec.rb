@@ -13,7 +13,7 @@ RSpec.feature "user can checkout" do
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
 
-    click_button "Log In"
+    click_button "Login"
     expect(current_path).to eq(cart_path)
 
     click_button "Checkout"
@@ -41,7 +41,7 @@ RSpec.feature "user can checkout" do
     fill_in "Username", with: user.username
     fill_in "Password", with: "pie"
 
-    click_button "Log In"
+    click_button "Login"
 
     expect(page).to have_content("Invalid login")
   end

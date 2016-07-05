@@ -9,7 +9,7 @@ RSpec.feature "admin login functions" do
     fill_in "Username", with: admin.username
     fill_in "Password", with: admin.password
 
-    click_button "Log In"
+    click_button "Login"
 
     expect(current_path).to eq("/admin/dashboard")
     expect(page).to have_content("Welcome, #{admin.name}")

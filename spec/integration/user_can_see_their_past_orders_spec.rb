@@ -14,7 +14,7 @@ RSpec.feature "user views past orders" do
 
     fill_in "Username", with: user1.username
     fill_in "Password", with: user1.password
-    click_button "Log In"
+    click_button "Login"
 
     visit orders_path
 

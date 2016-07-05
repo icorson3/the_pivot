@@ -13,7 +13,7 @@ RSpec.feature "user applies to be a vendor" do
     expect(current_path).to eq(new_vendor_path)
 
     within("h1") do
-      expect(page).to have_content("Apply to be a Vendor!")
+      expect(page).to have_content("Apply to be a vendor!")
     end
   end
 

@@ -1,17 +1,22 @@
-<%= render "shared/dashboard" %>
+<div class="container">
+  <div class="box">
+    <%= render "shared/dashboard" %>
 
 
-<% if @user.business_admin? %>
-<p>
-  Want to add another administrator to your store?
-</p>
-<%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search By Username" %>
-<%= submit_tag "User Search" %>
-<% end %>
-  <% if params[:search].nil? %>
-  <p>There are no users with that user name.</p>
-  <% else %>
-  <%= render @users %>
-  <% end %>
-<% end %>
+    <% if @user.business_admin? && !@user.vendor.nil? && @user.vendor.status == "approved" %>
+    <p>
+      Want to add another administrator to your store?
+    </p>
+    <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search By Username" %>
+
+    <%= submit_tag "User Search" %>
+    <% end %>
+      <% if params[:search].nil? %>
+      <p>There are no users with that user name.</p>
+      <% else %>
+      <%= render @users %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
