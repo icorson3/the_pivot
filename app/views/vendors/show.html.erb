@@ -3,7 +3,7 @@
     <div class="col-lg-12">
       <br>
       <h1 class="row text-center"> <%= @vendor.name %>
-      <div>
+      <div class="approval">
         <% if current_super_admin? %>
           <% if @vendor.status == "pending" %>
             <%= link_to "Approve", vendor_path(@vendor, vendor: {status: "approved"}), method: :patch, class: "text-white btn-success btn-sm" %>
