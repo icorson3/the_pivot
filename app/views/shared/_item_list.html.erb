@@ -1,16 +1,3 @@
-Items Per Page <%= select_tag :per_page, options_for_select([15, 30, 60], params[:per_page]), :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
-
-<% @items.each_slice(3) do |items| %>
- <div class="row">
-   <div class ="center">
-   <% items.each do |item| %>
-   <div class="col-md-4">
-     <div id="item-card">
-       <%= link_to (image_tag item.image, class: "img-thumbnail"), vendor_item_path(item.vendor.slug, item),  class: "item_click" %>
-       <div id="card-text">
-         <p><%= item.name %> - $<%= item.price %></p>
-         <%= button_to "Add to cart", cart_items_path(id: item), class: "btn btn-lg btn-block" %>
-
 <div class="container">
   <div class="box">
     Items Per Page <%= select_tag :per_page, options_for_select([15, 30, 60], params[:per_page]),
