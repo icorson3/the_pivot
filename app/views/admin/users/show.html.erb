@@ -1,7 +1,20 @@
 <div class="box">
   <h1>Admin Dashboard</h1>
   <%= render "shared/dashboard" %>
-
+<p>
+  Need to edit a users information?
+</p>
+  <%= form_tag(admin_dashboard_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search By Username" %>
+  <%= submit_tag "User Search" %>
+  <% end %>
+  <% if params[:search].nil? %>
+  <p>There are no users with that user name.</p>
+  <% else %>
+  <% @edit_users.each do |user| %>
+    <%= user.username %> <%= button_to "Edit User Information", edit_user_path(user), method: "get" %>
+    <% end %>
+  <% end %>
   <div>
     <div class="btn-group">
       <button type="button" class="btn btn-default brown-btn" id="pending">

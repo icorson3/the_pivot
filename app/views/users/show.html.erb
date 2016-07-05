@@ -11,12 +11,12 @@
     <%= text_field_tag :search, params[:search], placeholder: "Search By Username" %>
 
     <%= submit_tag "User Search" %>
+
     <% end %>
       <% if params[:search].nil? %>
       <p>There are no users with that user name.</p>
       <% else %>
       <%= render @users %>
       <% end %>
-    <% end %>
   </div>
 </div>
