@@ -9,7 +9,7 @@
        <% items.each do |item| %>
        <div class="col-md-4">
          <div id="item-card">
-           <%= link_to (image_tag item.image, class: "img-thumbnail"), vendor_item_path(item.vendor.slug, item) %>
+           <%= link_to (image_tag item.image, class: "img-thumbnail"), vendor_item_path(item.vendor.slug, item), class: "#{item.name}-click" %>
            <div id="card-text">
              <p><%= item.name %> - $<%= item.price %></p>
              <%= button_to "Add to cart", cart_items_path(id: item), class: "btn btn-lg btn-block" %>
