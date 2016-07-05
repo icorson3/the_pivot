@@ -8,10 +8,10 @@
         <%= form_for(:session, url: login_path) do |f| %>
 
           <%= f.label :username %>
-          <%= f.text_field :username, :required => true, class: "form-control" %>
+          <%= f.text_field :username, :required => true, class: "form-control general-form" %>
 
           <%= f.label :password %>
-          <%= f.password_field :password, :required => true, class: "form-control" %>
+          <%= f.password_field :password, :required => true, class: "form-control general-form" %>
 
           <div class="row">
             <br>

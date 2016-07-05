@@ -139,10 +139,6 @@
   text-align: center;
 }
 
-// a:visited {
-//   color: gray;
-// }
-
 //----------Cart---------
 #cart-thumb {
   height: 50px;
@@ -165,10 +161,46 @@
   background-color: #F0B67F;
 }
 
-//----------Login---------
+//----------Forms---------
+
 #login {
   margin-left: 42%;
+}
+
+#create-account {
+  margin-left: 41%;
+}
+
+#user-update {
+  margin-left: 41%;
+}
+
+#update-vendor {
+  margin-left: 31%;
+}
+
+#create-vendor {
+  margin-left: 35%;
+}
+
+#update-item {
+  margin-left: 32%;
+}
+
+#add-item {
+  margin-left: 32%;
+}
+
+.general-form {
   width: 200px;
+}
+
+.state-form {
+  width: 60px;
+}
+
+.description-form {
+  width: 450px;
 }
 
 //----------Bootstrap---------
