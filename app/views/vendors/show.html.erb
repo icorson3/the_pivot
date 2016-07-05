@@ -40,3 +40,6 @@
     </div>
   </div>
 </div>
+<h3>Reviews(<%= @vendor.reviews.count %>)</h3>
+<%= render partial: 'reviews/form' %>
+<%= render partial: 'vendors/review', collection: @vendor.reviews %>
