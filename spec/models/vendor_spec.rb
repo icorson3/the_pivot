@@ -8,6 +8,6 @@ RSpec.describe Vendor, type: :model do
     it { should respond_to(:items) }
     it { should have_many(:users) }
     it { should respond_to(:users) }
+    it { should have_many(:reviews) }
   end
 end
-  
