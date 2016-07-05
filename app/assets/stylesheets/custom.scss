@@ -32,7 +32,7 @@
 //----------Category Nav--------
 #category-nav {
   min-height:25px;
-  background-color: #964646;
+  background-color: #A55C57;
   border-radius: 0;
 }
 
@@ -42,7 +42,6 @@
 }
 
 #category-navbar {
-  width: 100%;
     text-align: left;
     > li {
       float: none;
@@ -55,11 +54,18 @@
 }
 
 #category-link {
+  color: #EEF5DB;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-#category-nav { a:link, a:visited, a:hover, a:active { color:#EEF5DB; } }
+#category-link:hover {
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#category-nav { a:link, a:visited, a:hover, a:active { color:#black; } }
 
 //----------Index Header---------
 #page_header {
@@ -133,9 +139,9 @@
   text-align: center;
 }
 
-a:visited {
-  color: gray;
-}
+// a:visited {
+//   color: gray;
+// }
 
 //----------Cart---------
 #cart-thumb {
@@ -176,11 +182,12 @@ a:visited {
 }
 
 .btn {
-  background-color: #C9EDDC;
+  background-color: #BDDD6C;
+  color: #0C1E00
 }
-// .btn:hover {
-//   background-color: red;
-// }
+.btn:hover {
+  background-color: #DFFC94
+}
 
 //----------General---------
 html {
@@ -214,6 +221,16 @@ img.img-thumbnail {
   border-top: 1px solid #616161 !important;
 }
 
+.text-white {
+  color: #F4F1ED
+}
+.text-white:visited {
+  color: #F4F1ED
+}
+.text-white:hover {
+  color: black
+}
+
 .search {
    background: transparent;
    width: 268px;
@@ -245,6 +262,29 @@ input.search-query {
     background: #CECECE;
     background: rgba(245,245,245,0.7);
 }
+
+.approve-right {
+  padding-left: 200px;
+}
+
+.apply-button {
+  background-color: #9B9FB5
+}
+.apply-button:hover {
+  background-color: #white
+}
+
+.brown-btn {
+  background-color: #EAA46B
+}
+.brown-btn:hover {
+  background-color: #FFCA96
+}
+
+.pad {
+  margin-left: 18px;
+}
+
 
 @media screen and (min-width:1200px) {
     .box:after {

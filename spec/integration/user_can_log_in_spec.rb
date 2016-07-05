@@ -8,7 +8,7 @@ RSpec.feature "user can log in and log out" do
 
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
-    click_button "Log In"
+    click_button "Login"
 
     expect(current_path).to eq dashboard_path
 
@@ -25,7 +25,7 @@ RSpec.feature "user can log in and log out" do
 
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
-    click_button "Log In"
+    click_button "Login"
 
     click_link "Log Out"
 

@@ -1,1 +1,7 @@
-<%= render "shared/item_list" %>
+<% if @vendor.status == "approved" %>
+  <%= render "shared/item_list" %>
+<% else %>
+  <div class="text-center">
+    <h1>We're Sorry, but this store has been retired</h1>
+  </div>
+<% end %>

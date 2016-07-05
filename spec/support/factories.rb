@@ -28,6 +28,7 @@ FactoryGirl.define do
 
   factory :category do
     name
+    kind 1
   end
 
   factory :order do
@@ -44,7 +45,7 @@ FactoryGirl.define do
     description "all the things"
     city "denver"
     state "CO"
-    status "pending"
+    status "approved"
 
     factory :vendor_with_items do
       items { create_list(:item, 3) }

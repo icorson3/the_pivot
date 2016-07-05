@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="box">
+    <div class="text-center">
+      <h1>Retired Vendors</h1>
+    </div>
+
+    <ul>
+      <% @vendors.each do |vendor| %>
+      <li><%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

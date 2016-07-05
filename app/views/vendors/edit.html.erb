@@ -1,12 +1,1 @@
-<h1>Edit Vendor Information</h1>
-<%= form_for(@vendor) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  <%= f.label :state %>
-  <%= f.text_field :state %>
-  <%= f.submit "Update" %>
-<% end %>
+<%= render partial: 'vendor_form', locals: {goal: "Update Vendor Information", button: "Update Vendor"} %>

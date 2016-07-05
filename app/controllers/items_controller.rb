@@ -1,9 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
-  end
-
-  def show
-    @item = Item.find(params[:id])
+    @per_page = params[:per_page] || 15
+    @items = Item.from_approved_vendors.paginate(:per_page => @per_page, :page => params[:page])
   end
 end

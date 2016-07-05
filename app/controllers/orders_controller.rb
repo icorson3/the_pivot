@@ -10,9 +10,6 @@ class OrdersController < ApplicationController
       flash[:notice] = "Order was successfully placed."
       session[:cart] = {}
       redirect_to orders_path
-    else
-      flash[:error] = "Could not checkout. Please add some items!"
-      redirect_to cart_path
     end
   end
 
@@ -21,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @order = Order.find(params[:id])
+
   end
 
   def update

@@ -1,7 +1,8 @@
 $(document).ready(function(){
   $('.order_table').hide();
-  $('#all_orders').show();
+  $('#pending_orders').show();
 
+  showOrderTable("#pending", "#pending_orders");
   showOrderTable("#all", "#all_orders");
   showOrderTable("#order", "#ordered_orders");
   showOrderTable("#pay", "#paid_orders");
