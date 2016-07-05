@@ -221,6 +221,57 @@
   background-color: #DFFC94
 }
 
+//----------Text---------------
+.text-dark{
+  color: #1D1D1D;
+}
+
+.text-white {
+  color: #F4F1ED
+}
+.text-white:visited {
+  color: #F4F1ED
+}
+.text-white:hover {
+  color: black
+}
+
+//----------Buttons----------
+.apply-button {
+  background-color: #9B9FB5
+}
+.apply-button:hover {
+  background-color: #white
+}
+
+.brown-btn {
+  background-color: #EAA46B
+}
+.brown-btn:hover {
+  background-color: #FFCA96
+}
+
+.order:hover {
+  color: #1D1D1D;
+}
+
+//----------Padding---------
+.approve-right {
+  padding-left: 200px;
+}
+
+.pad {
+  margin-left: 18px;
+}
+
+.add-pad {
+  padding-left: 17px;
+}
+
+.search-pad {
+  padding-left: 30px;
+}
+
 //----------General---------
 html {
   height: 100%;
@@ -233,7 +284,6 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   height: 100%;
-  //background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
   font-family: 'Lato', serif;
 }
 img.img-thumbnail {
@@ -241,30 +291,12 @@ img.img-thumbnail {
     box-shadow: 8;
 }
 
-.text-dark{
-  color: #1D1D1D;
-}
-
 .black-line {
   border-top: 1px solid #060606;
 }
 
-.order:hover {
-  color: #1D1D1D;
-}
-
 .table td {
   border-top: 1px solid #616161 !important;
-}
-
-.text-white {
-  color: #F4F1ED
-}
-.text-white:visited {
-  color: #F4F1ED
-}
-.text-white:hover {
-  color: black
 }
 
 .search {
@@ -297,36 +329,6 @@ input.search-query {
     padding: 30px 15px;
     background: #CECECE;
     background: rgba(245,245,245,0.8);
-}
-
-.approve-right {
-  padding-left: 200px;
-}
-
-.apply-button {
-  background-color: #9B9FB5
-}
-.apply-button:hover {
-  background-color: #white
-}
-
-.brown-btn {
-  background-color: #EAA46B
-}
-.brown-btn:hover {
-  background-color: #FFCA96
-}
-
-.pad {
-  margin-left: 18px;
-}
-
-.add-pad {
-  padding-left: 17px;
-}
-
-.search-pad {
-  padding-left: 30px;
 }
 
 @media screen and (min-width:1200px) {
