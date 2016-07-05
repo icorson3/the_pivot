@@ -10,7 +10,7 @@ RSpec.feature "User can update account" do
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
 
-    click_button "Log In"
+    click_button "Login"
     click_link "Update Personal Account Information"
     expect(current_path).to eq("/users/#{user.id}/edit")
 

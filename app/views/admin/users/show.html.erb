@@ -1,58 +1,60 @@
-<h1>Admin Dashboard</h1>
-<%= render "shared/dashboard" %>
+<div class="box">
+  <h1>Admin Dashboard</h1>
+  <%= render "shared/dashboard" %>
 
-<div>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default" id="pending">
-      Pending Vendors
-      <span class="badge"><%= @vendors.count %></span>
-    </button>
-    <button type="button" class="btn btn-default" id="all">
-      All Orders
-      <span class="badge"><%= @orders.count %></span>
-    </button>
-    <button type="button" class="btn btn-default" id="order">
-      Ordered
-      <span class="badge"><%= @orders.total(0) %></span>
-    </button>
-    <button type="button" class="btn btn-default" id="pay">
-      Paid
-      <span class="badge"><%= @orders.total(1) %></span>
+  <div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default brown-btn" id="pending">
+        Pending Vendors
+        <span class="badge"><%= @vendors.count %></span>
       </button>
-      <button type="button" class="btn btn-default" id="cancel">
-        Cancelled
-        <span class="badge"><%= @orders.total(2) %></span>
+      <button type="button" class="btn btn-default brown-btn" id="all">
+        All Orders
+        <span class="badge"><%= @orders.count %></span>
       </button>
-      <button type="button" class="btn btn-default" id="complete">
-        Completed
-        <span class="badge"><%= @orders.total(3) %></span>
+      <button type="button" class="btn btn-default brown-btn" id="order">
+        Ordered
+        <span class="badge"><%= @orders.total(0) %></span>
       </button>
+      <button type="button" class="btn btn-default brown-btn" id="pay">
+        Paid
+        <span class="badge"><%= @orders.total(1) %></span>
+        </button>
+        <button type="button" class="btn btn-default brown-btn" id="cancel">
+          Cancelled
+          <span class="badge"><%= @orders.total(2) %></span>
+        </button>
+        <button type="button" class="btn btn-default brown-btn" id="complete">
+          Completed
+          <span class="badge"><%= @orders.total(3) %></span>
+        </button>
+    </div>
   </div>
-</div>
 
-<table class="table order_table" id="pending_orders">
-  <th>Vendor Name</th>
-  <th>Vendor Satus</th>
+    <table class="table order_table" id="pending_orders">
+      <th>Vendor Name</th>
+      <th>Vendor Satus</th>
 
-  <% @vendors.each do |vendor| %>
-    <tr>
-      <td> <%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %> </td>
-      <td> <%= vendor.status %> </td>
-    </tr>
-  <% end %>
-</table>
+      <% @vendors.each do |vendor| %>
+        <tr>
+          <td> <%= link_to vendor.name, vendor_show_path(vendor.slug), class: "text-muted order" %> </td>
+          <td> <%= vendor.status %> </td>
+        </tr>
+      <% end %>
+    </table>
 
-<table class="table order_table" id="all_orders">
-  <th>Order Number</th>
-  <th>Order Status</th>
+    <table class="table order_table" id="all_orders">
+      <th>Order Number</th>
+      <th>Order Status</th>
 
-  <% @orders.each do |order| %>
-    <tr>
-      <td><%= link_to order.id, order_path(order), class: "text-muted order" %></td>
-      <td><%= order.status %></td>
-    </tr>
-  <% end %>
-</table>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.id, order_path(order), class: "text-muted order" %></td>
+          <td><%= order.status %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
 <%= render partial: 'order_table', locals: {orders: @orders, order_status: "ordered", status_number: 0} %>
 <%= render partial: 'order_table', locals: {orders: @orders, order_status: "paid", status_number: 1} %>
