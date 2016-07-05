@@ -15,9 +15,8 @@ RSpec.feature "user searches for an item using search bar", type: :feature do
     expect(page.text).to have_content(vendor.items.first.name)
 
     expect(current_path).to eq("/search")
-find(".item_click").click
-save_and_open_page
-    # click_on vendor.items.first.image
+    find(".item_click").click
+
     expect(current_path).to eq(vendor_item_path(vendor.slug, vendor.items.first))
     expect(page.text).to have_content(vendor.items.first.name)
     expect(page).to have_content(vendor.name)
