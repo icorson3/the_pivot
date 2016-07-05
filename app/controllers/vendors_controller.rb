@@ -10,6 +10,8 @@ class VendorsController < ApplicationController
 
   def show
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
+    @review = Review.new
+    @review.vendor_id = @vendor.id
   end
 
   def new
