@@ -4,7 +4,8 @@ RSpec.feature "business admin controls other business admins" do
  scenario "user applies to be business admin" do
    user = create(:user)
    user_1 = create(:user)
-   business_admin = create(:user, role: 1)
+   vendor = create(:vendor, status: "approved")
+   business_admin = create(:user, role: 1, vendor: vendor)
 
    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(business_admin)
 

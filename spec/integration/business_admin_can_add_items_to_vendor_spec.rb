@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.xfeature "business admin can manage items in their store" do
+RSpec.feature "business admin can manage items in their store" do
   scenario "they add an item and see it in the store" do
     user = create(:user)
     vendor = create(:vendor)
@@ -18,7 +18,7 @@ RSpec.xfeature "business admin can manage items in their store" do
     fill_in "Price", with: 19.99
     fill_in "Image", with: "http://www.cultivaipm.com/wp-content/uploads/2013/10/cherries.jpg"
     select category.name, from: "item[category_id]"
-
+    
     click_on "Create Item"
 
     expect(current_path).to eq(vendor_item_path(vendor.slug, Item.first))
@@ -50,7 +50,7 @@ RSpec.xfeature "business admin can manage items in their store" do
     fill_in "Image", with: "http://www.cultivaipm.com/wp-content/uploads/2013/10/cherries.jpg"
     select category.name, from: "item[category_id]"
 
-    click_on "Edit Item"
+    click_on "Update Item"
 
     expect(page).to have_content "Cherries"
     expect(page).to have_content "The best ever!"

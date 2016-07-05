@@ -3,7 +3,7 @@
     <%= render "shared/dashboard" %>
 
 
-    <% if @user.business_admin? && !@user.vendor.nil? && !@user.vendor.status == "rejected" %>
+    <% if @user.business_admin? && !@user.vendor.nil? && @user.vendor.status == "approved" %>
     <p>
       Want to add another administrator to your store?
     </p>
