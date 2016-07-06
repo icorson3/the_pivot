@@ -139,10 +139,6 @@
   text-align: center;
 }
 
-// a:visited {
-//   color: gray;
-// }
-
 //----------Cart---------
 #cart-thumb {
   height: 50px;
@@ -165,10 +161,46 @@
   background-color: #F0B67F;
 }
 
-//----------Login---------
+//----------Forms---------
+
 #login {
   margin-left: 42%;
+}
+
+#create-account {
+  margin-left: 41%;
+}
+
+#user-update {
+  margin-left: 41%;
+}
+
+#update-vendor {
+  margin-left: 31%;
+}
+
+#create-vendor {
+  margin-left: 35%;
+}
+
+#update-item {
+  margin-left: 32%;
+}
+
+#add-item {
+  margin-left: 32%;
+}
+
+.general-form {
   width: 200px;
+}
+
+.state-form {
+  width: 60px;
+}
+
+.description-form {
+  width: 450px;
 }
 
 //----------Bootstrap---------
@@ -189,36 +221,9 @@
   background-color: #DFFC94
 }
 
-//----------General---------
-html {
-  height: 100%;
-}
-
-body {
-  background-color: #E7DFC6;
-  height: 100%;
-  //background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
-  font-family: 'Lato', serif;
-}
-img.img-thumbnail {
-    box-shadow: 6px 6px 30px #aaa;
-    box-shadow: 8;
-}
-
+//----------Text---------------
 .text-dark{
   color: #1D1D1D;
-}
-
-.black-line {
-  border-top: 1px solid #060606;
-}
-
-.order:hover {
-  color: #1D1D1D;
-}
-
-.table td {
-  border-top: 1px solid #616161 !important;
 }
 
 .text-white {
@@ -229,6 +234,69 @@ img.img-thumbnail {
 }
 .text-white:hover {
   color: black
+}
+
+//----------Buttons----------
+.apply-button {
+  background-color: #9B9FB5
+}
+.apply-button:hover {
+  background-color: #white
+}
+
+.brown-btn {
+  background-color: #EAA46B
+}
+.brown-btn:hover {
+  background-color: #FFCA96
+}
+
+.order:hover {
+  color: #1D1D1D;
+}
+
+//----------Padding---------
+.approve-right {
+  padding-left: 200px;
+}
+
+.pad {
+  margin-left: 18px;
+}
+
+.add-pad {
+  padding-left: 17px;
+}
+
+.search-pad {
+  padding-left: 30px;
+}
+
+//----------General---------
+html {
+  height: 100%;
+}
+
+body {
+  // background-color: #E7DFC6;
+  background: url(asset-path('bg.jpg'))   no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  font-family: 'Lato', serif;
+}
+img.img-thumbnail {
+    box-shadow: 6px 6px 30px #aaa;
+    box-shadow: 8;
+}
+
+.black-line {
+  border-top: 1px solid #060606;
+}
+
+.table td {
+  border-top: 1px solid #616161 !important;
 }
 
 .search {
@@ -260,31 +328,8 @@ input.search-query {
     margin-bottom: 20px;
     padding: 30px 15px;
     background: #CECECE;
-    background: rgba(245,245,245,0.7);
+    background: rgba(245,245,245,0.8);
 }
-
-.approve-right {
-  padding-left: 200px;
-}
-
-.apply-button {
-  background-color: #9B9FB5
-}
-.apply-button:hover {
-  background-color: #white
-}
-
-.brown-btn {
-  background-color: #EAA46B
-}
-.brown-btn:hover {
-  background-color: #FFCA96
-}
-
-.pad {
-  margin-left: 18px;
-}
-
 
 @media screen and (min-width:1200px) {
     .box:after {

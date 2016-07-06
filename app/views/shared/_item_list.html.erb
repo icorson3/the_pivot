@@ -1,5 +1,8 @@
 <div class="container">
   <div class="box">
+    <div class="text-center">
+      <h1> <%= title %> </h1>
+    </div>
     Items Per Page <%= select_tag :per_page, options_for_select([15, 30, 60], params[:per_page]),
     :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
 
