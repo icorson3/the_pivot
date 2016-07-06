@@ -12,7 +12,7 @@ RSpec.feature "admin login functions" do
     click_button "Login"
 
     expect(current_path).to eq("/admin/dashboard")
-    expect(page).to have_content("Welcome, #{admin.name}")
+    expect(page).to have_content("Welcome #{admin.username}")
   end
 
   scenario "default user cannot view admin dashboard" do

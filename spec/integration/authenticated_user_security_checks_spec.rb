@@ -36,6 +36,6 @@ RSpec.feature "Authenticated User has correct privledges" do
     follow_redirect!
 
     expect(response).to render_template(:show)
-    expect(response.body).to include("Welcome, John Doe")
+    expect(response.body).to include("Welcome test")
   end
 end
