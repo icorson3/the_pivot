@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => "root#show"
+  get '/about', to: "root#index", as: "about"
 
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   namespace :vendor, path: ':vendor_slug' do
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
     resources :reviews
+    resources :orders, only: [:index]
   end
 
   namespace :retired do

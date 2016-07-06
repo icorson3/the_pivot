@@ -1,5 +1,5 @@
 <% if @vendor.status == "approved" %>
-  <%= render "shared/item_list" %>
+  <%= render partial: "shared/item_list", locals: {title: @vendor.name} %>
 <% else %>
   <div class="text-center">
     <h1>We're Sorry, but this store has been retired</h1>

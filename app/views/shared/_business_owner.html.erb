@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to "Update Personal Account Information", edit_user_path(@user), class: "btn btn-default" %><br><br>
+  </div>
+  <div class="col-md-3">
+    <%= link_to @user.vendor.name, vendor_show_path(@user.vendor.slug), class: "btn btn-default" %>
+  </div>
+</div>
+<% if @user.vendor.status == "approved" %>
+  <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
+  <%= link_to "Add Item to My Store", new_vendor_item_path(@user.vendor.slug), class: "btn btn-default" %>
+  <%= link_to "See Orders", vendor_orders_path(@user.vendor.slug), class: "btn btn-default" %>
+<% elsif @user.vendor.status == "pending" %>
+  <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
+  <br><br>
+  <p>Your store is being reviewed. Please check back at a later time.</p>
+<% elsif @user.vendor.status == "rejected" %>
+  <p> We are sorry, your store has been rejected. Contact an admin for more details. </p>
+<% end %>
+<%= link_to "Order History", orders_path, class: "btn btn-default" %>

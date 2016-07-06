@@ -1,7 +1,1 @@
-<div class="container-fluid">
-  <div class="text-center">
-    <h1> <%= @category.name %> </h1>
-  </div>
-  <br>
-</div>
-<%= render "shared/item_list" %>
+<%= render partial: "shared/item_list", locals: {title: @category.name} %>
