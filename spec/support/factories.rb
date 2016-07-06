@@ -38,6 +38,11 @@ FactoryGirl.define do
     factory :order_with_items do
       items { create_list(:item, 3) }
     end
+
+    # factory :order_for_vendor do
+    #   vendor { create(:vendor) }
+    #   item { create(:item, vendor: vendor) }
+    # end
   end
 
   factory :vendor do

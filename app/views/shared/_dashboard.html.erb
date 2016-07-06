@@ -1,19 +1,8 @@
 <h2> Welcome, <%= @user.name %></h2>
 
 <div class="container-fluid">
-  <% if @user %>
-    <div class="row">
-      <div class="col-md-3">
-        <%= link_to "Update Personal Account Information", edit_user_path(@user), class: "btn btn-default" %><br><br>
-      </div>
-      <% if @user.vendor.nil? %>
-      <div class="col-md-3">
-        <%= link_to "Apply to be a Vendor", new_vendor_path, class: "btn btn-default"%>
-      </div>
-      <% end %>
-    <% end %>
-    </div>
   <% if !@user.vendor.nil? %>
+<<<<<<< HEAD
     <% if @user.vendor.status == "approved" %>
       <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
       <%= link_to "Add Item to My Store", new_vendor_item_path(@user.vendor.slug), class: "btn btn-default" %>
@@ -29,5 +18,10 @@
 
   <% if @user.orders.any? %>
     <%= link_to "Order History", orders_path, class: "btn btn-default" %>
+=======
+    <%= render partial: 'shared/business_owner' %>
+  <% elsif %>
+    <%= render partial: 'shared/no_business' %>
+>>>>>>> 044a42996c2930cbc896192486727cd1be50d95b
   <% end %>
 </div>

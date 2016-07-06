@@ -4,8 +4,6 @@ class Vendor < ActiveRecord::Base
   has_many :users
   has_many :reviews
   has_many :order_items
-  has_many :orders, through: :order_items
-
 
   before_create :create_slug
 

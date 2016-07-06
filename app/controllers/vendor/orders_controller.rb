@@ -2,7 +2,7 @@ class Vendor::OrdersController < ApplicationController
 
   def index
     @vendor = current_user.vendor
-    @orders = OrderItem.where(vendor_id: @vendor)
+    @order_items = OrderItem.vendors_orders_items(@vendor)
   end
 
 end

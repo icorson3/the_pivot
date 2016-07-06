@@ -6,8 +6,6 @@ RSpec.feature "admin can change order status" do
     admin = create(:user, role: 2)
     user = create(:user)
     order = user.orders.create
-    user.update(order: order)
-    byebug
     cart = Cart.new({ items[0].id => 1, items[1].id => 1 })
     order.create_order_items(cart)
 
