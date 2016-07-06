@@ -1,7 +1,8 @@
 <h1><%= @vendor.name %>'s Orders</h1>
 
-<ul>
+<table class = "table" id="vendor-order-table">
+  <th>Name</th>
   <% @order_items.each do |order_item| %>
-  <li><%= order_item.item.name %></li>
+  <tr><td><%= order_item.item.name %></td></tr>
   <% end %>
-</ul>
+</table>
