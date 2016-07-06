@@ -13,8 +13,9 @@
           <p> Category - <%= link_to @item.category.name, category_path(@item.category), class: "text-muted order" %> </p>
           <h5>$<%= @item.price %></h5>
 
-          <% if @user.business_admin? || @user.super_admin? %>
+          <% if @user.vendor == @item.vendor || @user.super_admin? %>
             <%= link_to "Edit Item", edit_vendor_item_path(@item.vendor.slug, @item), class: "btn" %>
+            <%= link_to "Remove Item", vendor_item_path(@item.vendor.slug, @item), method: :delete, class: "btn" %>
           <% end %>
           <br><br>
           <% if @item.active? %>

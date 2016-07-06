@@ -45,6 +45,17 @@ class Vendor::ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:success] = "Removed item!"
+      redirect_to vendor_items_path(params[:vendor_slug])
+    else
+      flash[:error] = "Unable to remove item."
+      redirect_to vendor_item_path(params[:vendor_slug], @item)
+    end
+  end
+
   private
 
   def vendor_item_params

@@ -16,6 +16,11 @@
             <% end %>
           <% end %>
         </div>
+        <div class="add-item">
+          <% if current_super_admin? || current_user && current_user.vendor == @vendor %>
+            <%= link_to "Add Item to Store", new_vendor_item_path(@vendor.slug), class: "btn btn-default" %>
+          <% end %>
+        </div>
         </h1>
         <hr class="black-line">
         <h2 class="row text-center"> <%= @vendor.description %> </h2>
@@ -40,8 +45,9 @@
     </div>
   </div>
 </div>
+
 <h3>Reviews(<%= @vendor.reviews.count %>)</h3>
 <% if current_user %>
-<%= render partial: 'reviews/form' %>
+  <%= render partial: 'reviews/form' %>
 <% end %>
 <%= render partial: 'vendors/review', collection: @vendor.reviews %>
