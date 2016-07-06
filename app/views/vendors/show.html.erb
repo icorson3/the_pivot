@@ -42,3 +42,8 @@
     </div>
   </div>
 </div>
+<h3>Reviews(<%= @vendor.reviews.count %>)</h3>
+<% if current_user %>
+<%= render partial: 'reviews/form' %>
+<% end %>
+<%= render partial: 'vendors/review', collection: @vendor.reviews %>

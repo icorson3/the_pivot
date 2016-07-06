@@ -37,6 +37,7 @@ class PermissionsService
     return true if controller == "users" && action.in?(["show", "edit", "update"])
     return true if controller == "application" && action.in?(["get_favicon"])
     return true if controller == "retired/vendors" && action.in?(["index"])
+    return true if controller == "vendor/reviews" && action.in?(["create"])
   end
 
   def registered_user_permissions
@@ -52,6 +53,7 @@ class PermissionsService
     return true if controller == "users" && action.in?(["show", "edit", "update"])
     return true if controller == "application" && action.in?(["get_favicon"])
     return true if controller == "retired/vendors" && action.in?(["index"])
+    return true if controller == "vendor/reviews" && action.in?(["create"])
   end
 
   def unregistered_user_permissions
@@ -66,6 +68,7 @@ class PermissionsService
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "application" && action.in?(["get_favicon"])
     return true if controller == "retired/vendors" && action.in?(["index"])
+    return true if controller == "vendor/reviews" && action.in?(["create"])
   end
 
   def controller

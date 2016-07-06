@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :vendors, only: [:index, :new, :create, :edit, :update]
 
+
   resources :categories, only: [:index, :show]
 
   namespace :admin do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
 
   namespace :vendor, path: ':vendor_slug' do
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
+    resources :reviews
   end
 
   namespace :retired do
