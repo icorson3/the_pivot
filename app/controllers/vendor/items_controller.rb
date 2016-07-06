@@ -3,6 +3,8 @@ class Vendor::ItemsController < ApplicationController
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
     @per_page = params[:per_page] || 15
     @items = @vendor.items.paginate(:per_page => @per_page, :page => params[:page])
+    @categories = Category.pluck(:name).uniq
+    @vendors = Vendor.pluck(:name).uniq
   end
 
   def show
