@@ -1,14 +1,9 @@
 class Vendor::ItemsController < ApplicationController
   def index
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
-<<<<<<< HEAD
-    @per_page = params[:per_page] || 15
-    @items = @vendor.items.paginate(:per_page => @per_page, :page => params[:page])
     @categories = Category.pluck(:name).uniq
     @vendors = Vendor.pluck(:name).uniq
-=======
     @items = @vendor.items
->>>>>>> a5a030c8d4ad0e584274c752706bccda7835c943
   end
 
   def show
