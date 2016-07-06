@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => "root#show"
+  get '/about', to: "root#index", as: "about"
 
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update]

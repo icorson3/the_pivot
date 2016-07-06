@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 .byebug_history
+.DS_STORE
 
 #ignore simplecov
 /coverage

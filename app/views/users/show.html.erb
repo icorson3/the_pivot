@@ -4,16 +4,17 @@
 
 
     <% if @user.business_admin? && !@user.vendor.nil? && @user.vendor.status == "approved" %>
-    <p>
+    <br><p class="add-pad">
       Want to add another administrator to your store?
     </p>
-    <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search By Username" %>
-
-    <%= submit_tag "User Search" %>
+    <div class="row search-pad">
+      <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search By Username", class: "add-pad" %>
+      <%= submit_tag "User Search", class: "btn btn-sm btn-default brown-btn" %>
+    </div>
     <% end %>
       <% if params[:search].nil? %>
-      <p>There are no users with that user name.</p>
+      <p class="add-pad">There are no users with that user name.</p>
       <% else %>
       <%= render @users %>
       <% end %>
