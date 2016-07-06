@@ -17,6 +17,7 @@
     <% if @user.vendor.status == "approved" %>
       <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
       <%= link_to "Add Item to My Store", new_vendor_item_path(@user.vendor.slug), class: "btn btn-default" %>
+      <%= link_to "See Orders", vendor_orders_path(@user.vendor.slug), class: "btn btn-default" %>
     <% elsif @user.vendor.status == "pending" %>
       <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
       <br><br>

@@ -1,0 +1,7 @@
+<h1><%= @vendor.name %>'s Orders</h1>
+
+<ul>
+  <% @orders.each do |order| %>
+  <li><%= link_to order.user.name %></li>
+  <% end %>
+</ul>
