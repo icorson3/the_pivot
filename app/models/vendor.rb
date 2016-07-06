@@ -3,6 +3,7 @@ class Vendor < ActiveRecord::Base
   belongs_to :category
   has_many :users
   has_many :reviews
+  has_many :order_items
 
   before_create :create_slug
 
