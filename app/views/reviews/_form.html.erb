@@ -1,8 +1,7 @@
 <h3>Write A Review</h3>
 
 <%= form_for [@vendor, @review], :url => url_for(:controller => 'vendor/reviews', :action => "create") do |f| %>
-  <%= f.label :author_name %>
-  <%= f.text_field :author_name, class: "form-control"%>
+  <%= f.hidden_field :author_name, value: current_user.name, class: "form-control"%>
 
   <%= f.label :body %>
   <%= f.text_area :body, class: "form-control" %>
