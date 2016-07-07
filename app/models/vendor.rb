@@ -20,8 +20,4 @@ class Vendor < ActiveRecord::Base
     self.slug = name.parameterize
   end
 
-  def self.status(status)
-    Vendor.where(status: status)
-  end
-
 end
