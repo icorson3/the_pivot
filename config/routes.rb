@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   resources :cart_items, only: [:create, :index, :destroy, :update]
 
-  resources :orders, only: [:index, :create, :show, :edit, :update]
+  resources :orders, only: [:index, :create, :show, :update]
 
   resources :vendors, only: [:index, :new, :create, :edit, :update]
 
