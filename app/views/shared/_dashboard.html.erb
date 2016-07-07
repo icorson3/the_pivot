@@ -1,6 +1,6 @@
 <h2>Welcome, <%= @user.name %></h2>
 <div class="container-fluid">
-  <% if !@user.vendor.nil? %>
+  <% if @user.vendor? %>
     <%= render partial: 'shared/business_owner' %>
   <% else %>
     <%= render partial: 'shared/no_business' %>

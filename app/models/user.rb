@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     self.where("username ILIKE ?", query)
   end
 
+  def vendor?
+    true if self.vendor
+  end
+
 end
