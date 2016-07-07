@@ -9,5 +9,19 @@ RSpec.describe Vendor, type: :model do
     it { should have_many(:users) }
     it { should respond_to(:users) }
     it { should have_many(:reviews) }
+    it { should have_many(:order_items) }
+  end
+
+  context "it creates a slug" do
+    scenario "manually create slug" do
+      vendor = Vendor.create({
+        name: "Country Store",
+        description: "sells stuff",
+        city: "Denver",
+        state: "CO",
+        status: "approved"
+        })
+      expect(vendor.create_slug).to eq("country-store")
+    end
   end
 end

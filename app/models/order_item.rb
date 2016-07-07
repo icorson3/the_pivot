@@ -6,5 +6,4 @@ class OrderItem < ActiveRecord::Base
   def self.vendors_orders_items(vendor)
     self.joins(:item).merge(Item.where(vendor: vendor))
   end
-
 end
