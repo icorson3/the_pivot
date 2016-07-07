@@ -4,12 +4,13 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :order_items
   has_many :items, through: :order_items
+
   enum status:["ordered", "paid", "cancelled", "completed"]
 
   def create_order_items(cart)
     cart.obj_contents.each do |content|
       OrderItem.create(item_id: content.id, order_id: self.id,
-                       subtotal: content.subtotal, quantity: content.quantity)
+                       subtotal: content.subtotal, quantity: content.quantity, vendor: content.vendor)
     end
   end
 

@@ -1,15 +1,19 @@
 class VendorsController < ApplicationController
 
   def index
-    @vendors = Vendor.all
+    @approved = Vendor.approved
+    @rejected = Vendor.rejected
+    @retired = Vendor.retired
+  end
 
-    @approved = Vendor.where(status: "approved")
-    @rejected = Vendor.where(status: "rejected")
-    @retired = Vendor.where(status: "retired")
+  def retired_index
+    @vendors = Vendor.retired
   end
 
   def show
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
+    @review = Review.new
+    @review.vendor_id = @vendor.id
   end
 
   def new

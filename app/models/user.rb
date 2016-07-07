@@ -19,8 +19,12 @@ class User < ActiveRecord::Base
   enum role: { default: 0 , business_admin: 1, super_admin: 2 }
 
   def self.search(search)
-    query = "%#{search}%"
+    query = "#{search}"
     self.where("username ILIKE ?", query)
+  end
+
+  def vendor?
+    true if self.vendor
   end
 
 end

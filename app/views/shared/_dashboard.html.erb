@@ -1,32 +1,8 @@
-<h2> Welcome, <%= @user.name %></h2>
-
+<h2>Welcome, <%= @user.name %></h2>
 <div class="container-fluid">
-  <% if @user %>
-    <div class="row">
-      <div class="col-md-3">
-        <%= link_to "Update Personal Account Information", edit_user_path(@user), class: "btn btn-default" %><br><br>
-      </div>
-      <% if @user.vendor.nil? %>
-      <div class="col-md-3">
-        <%= link_to "Apply to be a Vendor", new_vendor_path, class: "btn btn-default"%>
-      </div>
-      <% end %>
-    <% end %>
-    </div>
-  <% if !@user.vendor.nil? %>
-    <% if @user.vendor.status == "approved" %>
-      <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
-      <%= link_to "Add Item to My Store", new_vendor_item_path(@user.vendor.slug), class: "btn btn-default" %>
-    <% elsif @user.vendor.status == "pending" %>
-      <%= link_to "Edit Vendor Information", edit_vendor_path(@user.vendor), class: "btn btn-default" %>
-      <br><br>
-      <p>Your store is being reviewed. Please check back at a later time.</p>
-    <% elsif @user.vendor.status == "rejected" %>
-      <p> We are sorry, your store has been rejected. Contact an admin for more details. </p>
-    <% end %>
-  <% end %>
-
-  <% if @user.orders.any? %>
-    <%= link_to "Order History", orders_path, class: "btn btn-default" %>
+  <% if @user.vendor? %>
+    <%= render partial: 'shared/business_owner' %>
+  <% else %>
+    <%= render partial: 'shared/no_business' %>
   <% end %>
 </div>

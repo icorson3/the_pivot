@@ -1,0 +1,26 @@
+<div class="btn-group admin-table-pad">
+  <button type="button" class="btn btn-default brown-btn" id="pending">
+    Pending Vendors
+    <span class="badge"><%= @vendors.count %></span>
+  </button>
+  <button type="button" class="btn btn-default brown-btn" id="all">
+    All Orders
+    <span class="badge"><%= @orders.count %></span>
+  </button>
+  <button type="button" class="btn btn-default brown-btn" id="order">
+    Ordered
+    <span class="badge"><%= @orders.total(0) %></span>
+  </button>
+  <button type="button" class="btn btn-default brown-btn" id="pay">
+    Paid
+    <span class="badge"><%= @orders.total(1) %></span>
+    </button>
+    <button type="button" class="btn btn-default brown-btn" id="cancel">
+      Cancelled
+      <span class="badge"><%= @orders.total(2) %></span>
+    </button>
+    <button type="button" class="btn btn-default brown-btn" id="complete">
+      Completed
+      <span class="badge"><%= @orders.total(3) %></span>
+    </button>
+</div>

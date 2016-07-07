@@ -122,7 +122,13 @@ class Seed
   def add_items(order, items)
     10.times do |i|
       item = Item.find(items.pop)
-      order.items << item
+      quantity = rand(1..10)
+      order_item = OrderItem.create(order: order,
+                                    item: item,
+                                    quantity: quantity,
+                                    subtotal: quantity*item.price,
+                                    vendor: item.vendor
+                                    )
       puts "#{i}: Added item #{item.name} to order #{order.id}."
     end
   end

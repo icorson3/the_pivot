@@ -1,8 +1,9 @@
 class Vendor::ItemsController < ApplicationController
   def index
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
-    @per_page = params[:per_page] || 15
-    @items = @vendor.items.paginate(:per_page => @per_page, :page => params[:page])
+    @categories = Category.pluck(:name)
+    @vendors = Vendor.approved.pluck(:name)
+    @items = @vendor.items.active
   end
 
   def show
@@ -13,7 +14,7 @@ class Vendor::ItemsController < ApplicationController
 
   def new
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
-    @categories = Category.where(kind: 1)
+    @categories = Category.item_categories
     @item = Item.new
   end
 
@@ -42,6 +43,17 @@ class Vendor::ItemsController < ApplicationController
     else
       flash.now[:error] = @item.errors.full_messages[0]
       render :new
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:success] = "Removed item!"
+      redirect_to vendor_items_path(params[:vendor_slug])
+    else
+      flash[:error] = "Unable to remove item."
+      redirect_to vendor_item_path(params[:vendor_slug], @item)
     end
   end
 

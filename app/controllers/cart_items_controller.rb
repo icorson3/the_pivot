@@ -8,7 +8,7 @@ class CartItemsController< ApplicationController
     item = Item.find(params[:id])
     @cart.add_item(item.id)
     flash[:add_item] = "Successfully added " \
-                       "#{view_context.link_to item.name, item_path(item)}" \
+                       "#{view_context.link_to item.name, vendor_item_path(item.vendor.slug, item)}" \
                        " to your cart!"
 
     session[:cart] = @cart.contents
@@ -27,7 +27,7 @@ class CartItemsController< ApplicationController
     item = Item.find(params[:id])
     @cart.remove_item(item.id)
     flash[:remove_item] = "Successfully removed " \
-                          "#{view_context.link_to item.name, item_path(item)}" \
+                          "#{view_context.link_to item.name, vendor_item_path(item.vendor.slug, item)}" \
                           " from your cart."
     session[:cart] = @cart.contents
     redirect_to cart_path

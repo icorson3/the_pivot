@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @per_page = params[:per_page] || 15
-    @items = Item.from_approved_vendors.paginate(:per_page => @per_page, :page => params[:page])
+    @categories = Category.pluck(:name)
+    @vendors = Vendor.approved.pluck(:name)
+    @items = Item.active.from_approved_vendors
   end
 end

@@ -1,0 +1,6 @@
+<div class="filter">
+  <label>Filter By Vendor</label>
+  <%= select :item, :filter_vendor, @vendors, {include_blank: true} %>
+  <label>Filter By Category</label>
+  <%= select :item, :filter_category, @categories, {include_blank: true} %>
+</div>

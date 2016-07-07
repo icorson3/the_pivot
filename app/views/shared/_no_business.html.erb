@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to "Update Personal Account Information", edit_user_path(@user), class: "btn btn-default" %><br><br>
+  </div>
+  <div class="col-md-3">
+    <% unless @user.super_admin? || @user.business_admin? %>
+    <%= link_to "Apply to be a Vendor", new_vendor_path, class: "btn btn-default"%>
+    <% end %>
+  </div>
+</div>
+<%= link_to "Order History", orders_path, class: "btn btn-default" %>

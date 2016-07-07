@@ -51,5 +51,4 @@ RSpec.describe Item, type: :model do
     expect(items[0].quantity(order.id)).to eq "1"
     expect(items[0].subtotal(order.id)).to eq 5.99
   end
-
 end
