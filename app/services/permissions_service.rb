@@ -25,7 +25,7 @@ class PermissionsService
   end
 
   def business_admin_permissions
-    return true if controller == "root" && action.in?(["show"])
+    return true if controller == "root" && action.in?(["show", "index"])
     return true if controller == "items" && action.in?(["index"])
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "orders" && action.in?(["index", "show", "create"])
@@ -41,7 +41,7 @@ class PermissionsService
   end
 
   def registered_user_permissions
-    return true if controller == "root" && action.in?(["show"])
+    return true if controller == "root" && action.in?(["show", "index"])
     return true if controller == "items" && action.in?(["index"])
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "orders" && action.in?(["index", "show", "create"])
@@ -56,7 +56,7 @@ class PermissionsService
   end
 
   def unregistered_user_permissions
-    return true if controller == "root" && action.in?(["show"])
+    return true if controller == "root" && action.in?(["show", "index"])
     return true if controller == "items" && action.in?(["index", "show"])
     return true if controller == "users" && action.in?(["new", "create"])
     return true if controller == "vendors" && action.in?(["index", "show", "retired_index"])

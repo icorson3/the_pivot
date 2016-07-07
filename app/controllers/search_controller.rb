@@ -8,8 +8,8 @@ class SearchController < ApplicationController
       @vendors = Vendor.status("approved").pluck(:name)
     else
       @categories = Category.pluck(:name)
-      @vendors = Vendor.status("approved").pluck(:name)
-      @items = Item.all.search(params[:search]).order("name DESC")
+      @vendors = Vendor.approved.pluck(:name)
+      @items = Item.active.from_approved_vendors.search(params[:search]).order("name DESC")
     end
   end
 end
