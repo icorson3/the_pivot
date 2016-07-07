@@ -10,13 +10,13 @@ class Item < ActiveRecord::Base
 
   enum status: ["active", "retired"]
 
-  def quantity(order_id)
-    order_item = self.order_items.find_by(order_id: order_id)
+  def quantity(order)
+    order_item = self.order_items.find_by(order: order)
     order_item.quantity
   end
 
-  def subtotal(order_id)
-    order_item = self.order_items.find_by(order_id: order_id)
+  def subtotal(order)
+    order_item = self.order_items.find_by(order: order)
     order_item.subtotal
   end
 
