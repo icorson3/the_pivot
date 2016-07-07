@@ -23,10 +23,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:index]
   end
 
-  namespace :retired do
-    resources :vendors, only: [:index]
-  end
-
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -38,4 +34,5 @@ Rails.application.routes.draw do
   get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
   get "/:vendor_slug", to: "vendors#show", as: "vendor_show"
+  get "/retired/vendors", to: "vendors#retired_index", as: "retired_vendors"
 end

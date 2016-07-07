@@ -8,6 +8,10 @@ class VendorsController < ApplicationController
     @retired = Vendor.where(status: "retired")
   end
 
+  def retired_index
+    @vendors = Vendor.where(status: "retired")
+  end
+
   def show
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
     @review = Review.new
