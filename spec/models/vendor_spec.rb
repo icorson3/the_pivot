@@ -13,7 +13,7 @@ RSpec.describe Vendor, type: :model do
   end
 
   context "it creates a slug" do
-    scenario "slug" do
+    scenario "manually create slug" do
       vendor = Vendor.create({
         name: "Country Store",
         description: "sells stuff",
