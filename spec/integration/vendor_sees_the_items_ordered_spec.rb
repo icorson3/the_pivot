@@ -9,7 +9,7 @@ RSpec.feature "vendor sees items ordered" do
 
     visit dashboard_path
 
-    expect(page).to have_link("See Orders")
+    expect(page).to have_link("Your Purchase History")
   end
 
   scenario "vendor can see each their order index" do
@@ -34,7 +34,7 @@ RSpec.feature "vendor sees items ordered" do
     expect(Order.count).to eq(1)
     visit dashboard_path
 
-    click_on "See Orders"
+    click_on "Vendor Orders"
 
     expect(page).to have_content("#{vendor.name}'s Orders")
     expect(current_path).to eq(vendor_orders_path(vendor.slug))

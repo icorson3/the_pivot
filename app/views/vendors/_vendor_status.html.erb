@@ -1,0 +1,10 @@
+<% if current_super_admin? %>
+  <% if @vendor.status == "pending" %>
+    <%= link_to "Approve", vendor_path(@vendor, vendor: {status: "approved"}), method: :patch, class: "text-white btn-success btn-sm" %>
+    <%= link_to "Reject", vendor_path(@vendor, vendor: {status: "rejected"}), method: :patch, class: "text-white btn-danger btn-sm" %>
+  <% elsif @vendor.status == "approved" %>
+    <%= link_to "Retire", vendor_path(@vendor, vendor: {status: "retired"}), method: :patch, class: "text-white btn-danger btn-sm" %>
+  <% elsif @vendor.status == "retired" %>
+    <%= link_to "Restore", vendor_path(@vendor, vendor: {status: "approved"}), method: :patch, class: "text-white btn-danger btn-sm" %>
+  <% end %>
+<% end %>

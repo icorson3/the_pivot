@@ -1,0 +1,19 @@
+<p class="add-pad">
+  Need to edit a users information?
+</p>
+<div class="row search-pad">
+  <%= form_tag(admin_dashboard_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search By Username", class: "add-pad" %>
+    <%= submit_tag "User Search", class: "btn btn-sm btn-default brown-btn" %>
+  <% end %><br>
+<% if @edit_users.empty? %>
+  <p class="add-pad">No users listed.</p>
+<% else %>
+  <% @edit_users.each do |user| %>
+  <table>
+    <td><%= user.username %></td>
+    <td><%= button_to "Edit User Information", edit_user_path(user), method: "get", class: "btn btn-default add-pad" %></td>
+  </table>
+  <% end %>
+<% end %>
+</div>

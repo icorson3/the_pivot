@@ -2,8 +2,8 @@ class Vendor::ItemsController < ApplicationController
   def index
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
     @categories = Category.pluck(:name)
-    @vendors = Vendor.pluck(:name)
-    @items = @vendor.items
+    @vendors = Vendor.approved.pluck(:name)
+    @items = @vendor.items.active
   end
 
   def show
