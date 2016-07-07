@@ -3,7 +3,7 @@ class Vendor::ItemsController < ApplicationController
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
     @categories = Category.pluck(:name)
     @vendors = Vendor.pluck(:name)
-    @items = @vendor.items
+    @items = @vendor.items.active
   end
 
   def show
