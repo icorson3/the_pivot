@@ -9,7 +9,6 @@ RSpec.feature "user can leave a review for a vendor" do
 
     visit vendor_show_path(vendor.slug)
 
-    fill_in "Author name", with: user.username
     fill_in "Body", with: "Great seller!"
 
     click_on "Submit"

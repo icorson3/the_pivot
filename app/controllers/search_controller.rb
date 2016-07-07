@@ -5,10 +5,10 @@ class SearchController < ApplicationController
       flash[:warning] = "Sorry, #{params[:search]} not found."
       redirect_to items_path
       @categories = Category.pluck(:name)
-      @vendors = Vendor.pluck(:name)
+      @vendors = Vendor.status("approved").pluck(:name)
     else
       @categories = Category.pluck(:name)
-      @vendors = Vendor.pluck(:name)
+      @vendors = Vendor.approved.pluck(:name)
       @items = Item.active.from_approved_vendors.search(params[:search]).order("name DESC")
     end
   end

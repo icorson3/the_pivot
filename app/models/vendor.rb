@@ -19,4 +19,5 @@ class Vendor < ActiveRecord::Base
   def create_slug
     self.slug = name.parameterize
   end
+
 end
