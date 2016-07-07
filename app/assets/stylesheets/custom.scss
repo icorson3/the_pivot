@@ -255,6 +255,10 @@
   color: #1D1D1D;
 }
 
+.home-button {
+  background-color: #EAD9D2;
+}
+
 //----------Padding---------
 .approve-right {
   padding-left: 200px;
@@ -278,6 +282,35 @@
 
 .review-pad {
   margin-right: 90px;
+}
+
+.purchase-history-pad {
+  margin-top: 5px;
+}
+
+.left-home-shove {
+  margin-top: 190px;
+  margin-left: 90px;
+}
+
+.right-home-shove {
+  margin-top: 190px;
+  margin-right: 150px;
+  width: 279px;
+}
+//----------Jumbotron-------
+
+.jumbotron {
+  background-image: url("http://marketingforhippies.com/wp-content/uploads/2015/10/booth.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 1140px;
+  height: 658px;
+}
+
+.picture {
+  background-color: transparent;
 }
 
 //----------General---------

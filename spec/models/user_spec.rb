@@ -36,4 +36,13 @@ RSpec.describe User, type: :model do
     expect(user_4.save).to eq false
     expect(user_5.save).to eq false
   end
+
+  scenario "user sees if they are a vendor" do
+    vendor = create(:vendor, status: "approved")
+    user = create(:user, role: 1, vendor: vendor)
+    user2 = create(:user, role: 0, vendor: nil)
+
+    expect(user.vendor?).to eq(true)
+    expect(user2.vendor?).to eq(nil)
+  end
 end

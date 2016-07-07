@@ -5,9 +5,18 @@
         <h1 class="brand-name"> CopperFalls Farmers Market </h1>
       </div>
       <hr class="black-line"><br>
-      <div class="text-center">
-        <%= image_tag "http://marketingforhippies.com/wp-content/uploads/2015/10/booth.jpg" %>
-      </div>
+      <div class="jumbotron">
+        <div class="row text-center">
+          <p>
+            <div class="col-md-6 text-center">
+               <%= link_to "Browse Your Favorite Vendors!", vendors_path, class: "btn btn-default btn-lg left-home-shove home-button" %>
+             </div>
+             <div class="col-md-6 text-center">
+               <%= link_to "Browse Your Favorite Items!", items_path, class: "btn btn-default btn-lg right-home-shove home-button" %><br><br>
+             </div>
+          </p>
+
+        </div>
     </div>
   </div>
 </div>

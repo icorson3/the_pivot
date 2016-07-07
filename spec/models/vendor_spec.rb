@@ -24,4 +24,56 @@ RSpec.describe Vendor, type: :model do
       expect(vendor.create_slug).to eq("country-store")
     end
   end
+
+  context "it finds approved vendors" do
+    scenario "approved returns approved vendors" do
+      vendor = Vendor.create({
+        name: "Country Store",
+        description: "sells stuff",
+        city: "Denver",
+        state: "CO",
+        status: "approved"
+        })
+      expect(Vendor.approved).to eq([vendor])
+    end
+  end
+
+  context "it finds rejected vendors" do
+    scenario "approved returns rejected vendors" do
+      vendor = Vendor.create({
+        name: "Country Store",
+        description: "sells stuff",
+        city: "Denver",
+        state: "CO",
+        status: "rejected"
+        })
+      expect(Vendor.rejected).to eq([vendor])
+    end
+  end
+
+  context "it finds pending vendors" do
+    scenario "approved returns pending vendors" do
+      vendor = Vendor.create({
+        name: "Country Store",
+        description: "sells stuff",
+        city: "Denver",
+        state: "CO",
+        status: "pending"
+        })
+      expect(Vendor.pending).to eq([vendor])
+    end
+  end
+
+  context "it finds retired vendors" do
+    scenario "approved returns retired vendors" do
+      vendor = Vendor.create({
+        name: "Country Store",
+        description: "sells stuff",
+        city: "Denver",
+        state: "CO",
+        status: "retired"
+        })
+      expect(Vendor.retired).to eq([vendor])
+    end
+  end
 end

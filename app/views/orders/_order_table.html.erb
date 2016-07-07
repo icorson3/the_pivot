@@ -1,0 +1,16 @@
+<table class="table" id="items">
+  <th>Item Name</th>
+  <th>Item Quantity</th>
+  <th>Item Price</th>
+  <th>Item Subtotal</th>
+
+  <% @order.items.each do |item| %>
+
+  <tr>
+    <td><%= link_to item.name, vendor_item_path(item.vendor.slug, item), class: "text-muted order" %></td>
+    <td><%= item.quantity(@order.id) %></td>
+    <td><%= item.price %></td>
+    <td><%= item.subtotal(@order.id) %></td>
+  </tr>
+  <% end %>
+</table>
