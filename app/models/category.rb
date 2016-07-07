@@ -24,4 +24,7 @@ class Category < ActiveRecord::Base
     end
   end
 
+  def self.item_categories
+    self.where(kind: 1)
+  end
 end

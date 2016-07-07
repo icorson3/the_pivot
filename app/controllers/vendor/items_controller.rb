@@ -14,7 +14,7 @@ class Vendor::ItemsController < ApplicationController
 
   def new
     @vendor = Vendor.find_by(slug: params[:vendor_slug])
-    @categories = Category.where(kind: 1)
+    @categories = Category.item_categories
     @item = Item.new
   end
 
