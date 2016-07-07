@@ -29,7 +29,7 @@ class PermissionsService
     return true if controller == "items" && action.in?(["index"])
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "orders" && action.in?(["index", "show", "create"])
-    return true if controller == "vendors" && action.in?(["index", "show", "edit", "update"])
+    return true if controller == "vendors" && action.in?(["index", "show", "edit", "update", "retired_index"])
     return true if controller == "categories" && action.in?(["index", "show"])
     return true if controller == "vendor/items" && action.in?(["index", "show", "new", "create", "edit", "update", "destroy"])
     return true if controller == "vendor/orders" && action.in?(["index"])
@@ -37,7 +37,6 @@ class PermissionsService
     return true if controller == "search" && action.in?(["index"])
     return true if controller == "users" && action.in?(["show", "edit", "update"])
     return true if controller == "application" && action.in?(["get_favicon"])
-    return true if controller == "retired/vendors" && action.in?(["index"])
     return true if controller == "vendor/reviews" && action.in?(["create"])
   end
 
@@ -46,14 +45,13 @@ class PermissionsService
     return true if controller == "items" && action.in?(["index"])
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "orders" && action.in?(["index", "show", "create"])
-    return true if controller == "vendors" && action.in?(["index", "show", "new", "create"])
+    return true if controller == "vendors" && action.in?(["index", "show", "new", "create", "retired_index"])
     return true if controller == "categories" && action.in?(["index", "show"])
     return true if controller == "vendor/items" && action.in?(["index", "show"])
     return true if controller == "sessions" && action.in?(["new", "create", "destroy"])
     return true if controller == "search" && action.in?(["index"])
     return true if controller == "users" && action.in?(["show", "edit", "update"])
     return true if controller == "application" && action.in?(["get_favicon"])
-    return true if controller == "retired/vendors" && action.in?(["index"])
     return true if controller == "vendor/reviews" && action.in?(["create"])
   end
 
@@ -61,14 +59,13 @@ class PermissionsService
     return true if controller == "root" && action.in?(["show"])
     return true if controller == "items" && action.in?(["index", "show"])
     return true if controller == "users" && action.in?(["new", "create"])
-    return true if controller == "vendors" && action.in?(["index", "show"])
+    return true if controller == "vendors" && action.in?(["index", "show", "retired_index"])
     return true if controller == "categories" && action.in?(["index", "show"])
     return true if controller == "vendor/items" && action.in?(["index", "show"])
     return true if controller == "sessions" && action.in?(["new", "create", "destroy"])
     return true if controller == "search" && action.in?(["index"])
     return true if controller == "cart_items" && action.in?(["index", "create", "update", "destroy"])
     return true if controller == "application" && action.in?(["get_favicon"])
-    return true if controller == "retired/vendors" && action.in?(["index"])
     return true if controller == "vendor/reviews" && action.in?(["create"])
   end
 

@@ -4,11 +4,11 @@ class SearchController < ApplicationController
     if Item.search(params[:search]).order("name DESC") == []
       flash[:warning] = "Sorry, #{params[:search]} not found."
       redirect_to items_path
-      @categories = Category.pluck(:name).uniq
-      @vendors = Vendor.pluck(:name).uniq
+      @categories = Category.pluck(:name)
+      @vendors = Vendor.pluck(:name)
     else
-      @categories = Category.pluck(:name).uniq
-      @vendors = Vendor.pluck(:name).uniq
+      @categories = Category.pluck(:name)
+      @vendors = Vendor.pluck(:name)
       @items = Item.all.search(params[:search]).order("name DESC")
     end
   end

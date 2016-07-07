@@ -39,10 +39,6 @@ RSpec.feature "visitor can create a new account" do
         expect(page).to have_content("Log Out")
         expect(page).not_to have_content("Log In")
       end
-
-      mail = ActionMailer::Base.deliveries.last
-      expect(mail.to).to eq [email]
-      expect(mail.from).to eq [sender]
     end
   end
 

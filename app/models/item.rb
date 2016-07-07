@@ -29,4 +29,5 @@ class Item < ActiveRecord::Base
     self.joins(:vendor).where(vendors: {status: "approved"})
   end
 
+
 end
