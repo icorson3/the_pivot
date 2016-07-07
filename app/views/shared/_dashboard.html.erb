@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <% if !@user.vendor.nil? %>
     <%= render partial: 'shared/business_owner' %>
-  <% elsif %>
+  <% else %>
     <%= render partial: 'shared/no_business' %>
   <% end %>
 </div>
