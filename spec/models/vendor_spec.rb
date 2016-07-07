@@ -34,7 +34,7 @@ RSpec.describe Vendor, type: :model do
         state: "CO",
         status: "approved"
         })
-      expect(Vendor.status("approved")).to eq([vendor])
+      expect(Vendor.approved).to eq([vendor])
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe Vendor, type: :model do
         state: "CO",
         status: "rejected"
         })
-      expect(Vendor.status("rejected")).to eq([vendor])
+      expect(Vendor.rejected).to eq([vendor])
     end
   end
 
@@ -60,7 +60,7 @@ RSpec.describe Vendor, type: :model do
         state: "CO",
         status: "pending"
         })
-      expect(Vendor.status("pending")).to eq([vendor])
+      expect(Vendor.pending).to eq([vendor])
     end
   end
 
@@ -73,7 +73,7 @@ RSpec.describe Vendor, type: :model do
         state: "CO",
         status: "retired"
         })
-      expect(Vendor.status("retired")).to eq([vendor])
+      expect(Vendor.retired).to eq([vendor])
     end
   end
 end
