@@ -9,5 +9,14 @@ RSpec.describe Vendor, type: :model do
     it { should have_many(:users) }
     it { should respond_to(:users) }
     it { should have_many(:reviews) }
+    it { should have_many(:order_items) }
+  end
+
+  context "it creates a slug" do
+    scenario "slug" do
+      vendor = create(:vendor)
+
+      expect(vendor.create_slug).to eq(vendor.slug)
+    end
   end
 end
