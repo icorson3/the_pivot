@@ -14,9 +14,14 @@ RSpec.describe Vendor, type: :model do
 
   context "it creates a slug" do
     scenario "slug" do
-      vendor = create(:vendor)
-
-      expect(vendor.create_slug).to eq(vendor.slug)
+      vendor = Vendor.create({
+        name: "Country Store",
+        description: "sells stuff",
+        city: "Denver",
+        state: "CO",
+        status: "approved"
+        })
+      expect(vendor.create_slug).to eq("country-store")
     end
   end
 end
