@@ -6,54 +6,16 @@
       <th>Created At</th>
       <th>Quantity</th>
       <th>Subtotal</th>
+      <th>User</th>
     <% @order_items.each do |order_item| %>
       <tr>
         <td><%= order_item.item.name %></td>
         <td><%= order_item.order.created_at %></td>
         <td><%= order_item.quantity %></td>
         <td><%= order_item.subtotal %></td>
+        <td><%= order_item.order.user.username %></td>
       </tr>
       <% end %>
     </table>
-</div>
-<!-- </div> -->
-  <!-- <table class="table" id="cart-table">
-    <th>Image</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Subtotal</th>
-    <th>Qty</th>
-    <th>Update</th>
-    <th>Remove</th>
-  <%# @cart.obj_contents.each do |item| %>
-    <tr id="<%#= "cart-table-#{item.name}" %>">
-      <td><img src="<%#= item.image %>" class="img-thumbnail" id="cart-thumb"></img></td>
-      <td><%#= item.name %></td>
-      <td><%#= item.description %></td>
-      <td>$<%#= item.price %></td>
-      <td>$<%#= item.subtotal %></td>
-
-      <%#= form_tag(cart_item_path(item), method: :put) do %>
-        <td><%#= select_tag(:quantity, options_for_select((1..10).to_a, item.quantity)) %></td>
-        <td><%#= submit_tag("Update", class: "btn btn-sm btn-block") %></td>
-      <%# end %>
-
-      <td><%#= button_to "Remove", cart_item_path(item), method: :delete, class: "btn btn-sm btn-block", id: "cart-remove" %></td>
-    </tr>
-  <%# end %>
-  </table>
-<div>
-
-<div id="user_buttons">
-  <%# if current_user %>
-    <%#= button_to "Checkout", orders_path, method: :post, id: "checkout", class: "btn btn-lg btn-block"%>
-  <%# else %>
-    <%#= link_to "Login or Create Account to Checkout", login_path %>
-  <%#end%>
-</div>
-</div>
-<%# end %>
-</div>
-</div> -->
+  </div>
 </div>
