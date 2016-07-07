@@ -3,6 +3,6 @@ class Admin::UsersController < Admin::BaseController
     @user = current_user
     @edit_users = User.search(params[:search])
     @orders = Order.all
-    @vendors = Vendor.stauts("pending")
+    @vendors = Vendor.status("pending")
   end
 end
