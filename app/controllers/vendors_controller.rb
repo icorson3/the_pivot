@@ -3,13 +3,13 @@ class VendorsController < ApplicationController
   def index
     @vendors = Vendor.all
 
-    @approved = Vendor.where(status: "approved")
-    @rejected = Vendor.where(status: "rejected")
-    @retired = Vendor.where(status: "retired")
+    @approved = Vendor.status("approved")
+    @rejected = Vendor.status("rejected")
+    @retired = Vendor.status("retired")
   end
 
   def retired_index
-    @vendors = Vendor.where(status: "retired")
+    @vendors = Vendor.status("retired")
   end
 
   def show

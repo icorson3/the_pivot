@@ -15,4 +15,9 @@ class Vendor < ActiveRecord::Base
   def create_slug
     self.slug = name.parameterize
   end
+
+  def self.status(status)
+    Vendor.where(status: status)
+  end
+
 end
