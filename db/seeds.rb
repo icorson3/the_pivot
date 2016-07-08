@@ -133,7 +133,14 @@ class Seed
     end
   end
 end
+
 Seed.new
+
+vendor = Vendor.create!(name: "Nate's Stuff",
+                        description: "stuff",
+                        city: "Denver",
+                        state: "co",
+                        status: "approved")
 
 User.create!(username: "jmejia@turing.io",
              password: "password",
@@ -154,7 +161,7 @@ User.create!(username: "nate@turing.io",
              city: Faker::Address.city,
              state: Faker::Address.state,
              zip: Faker::Address.zip_code,
-             vendor_id: 1)
+             vendor_id: 21)
 User.create!(username: "jorge@turing.io",
              password: "password",
              role: 2,

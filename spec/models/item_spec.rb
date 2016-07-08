@@ -10,6 +10,7 @@ RSpec.describe Item, type: :model do
   context "relationships" do
     it { should belong_to(:category) }
     it { should have_many(:order_items) }
+    it { should belong_to(:vendor) }
   end
 
   scenario "active and retired statuses" do

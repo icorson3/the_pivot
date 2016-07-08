@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root :to => "root#show"
   get '/about', to: "root#index", as: "about"
 
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index]
+
   resources :users, only: [:new, :create, :edit, :update]
+  get "/dashboard" => "users#show", as: "dashboard"
+
   resources :cart_items, only: [:create, :index, :destroy, :update]
 
   resources :orders, only: [:index, :create, :show, :update]
@@ -31,7 +34,6 @@ Rails.application.routes.draw do
 
   get "admin/user/edit" => "users#edit", as: "admin_edit_user"
   get "/cart" => "cart_items#index", as: "cart"
-  get "/dashboard" => "users#show", as: "dashboard"
   get "/favicon.ico" => "application#get_favicon"
   get "/retired/vendors", to: "vendors#retired_index", as: "retired_vendors"
   get "/:vendor_slug", to: "vendors#show", as: "vendor_show"
