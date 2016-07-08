@@ -6,6 +6,11 @@ RSpec.describe Category, type: :model do
     it { should respond_to(:items) }
   end
 
+  context "relationships" do
+    it { should have_many(:items) }
+    it { should have_many(:vendors) }
+  end
+
   it "does not save to db without valid attributes" do
     category = Category.new
     expect(category.save).to eq false
